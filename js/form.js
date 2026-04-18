@@ -88,37 +88,51 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Form Submit ──
-  form.addEventListener('submit', (e) => {
+  // ── Form Submit ──
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const isNameValid = validateField(nameInput);
     const isEmailValid = validateField(emailInput);
     const isMessageValid = validateField(messageInput);
-
     if (!isNameValid || !isEmailValid || !isMessageValid) return;
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalHTML = submitBtn.innerHTML;
 
-    // Show sending state
     submitBtn.innerHTML = '<i class="ph ph-circle-notch ph-spin"></i> Sending...';
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
 
-    // Simulate form submission (replace with actual endpoint)
-    setTimeout(() => {
-      // Success state
-      submitBtn.innerHTML = '<i class="ph ph-check-circle"></i> Message Sent!';
-      submitBtn.style.background = 'linear-gradient(135deg, var(--accent-emerald), #10b981)';
-      submitBtn.style.opacity = '1';
+    try {
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          message: messageInput.value.trim()
+        })
+      });
 
-      // Reset form after delay
-      setTimeout(() => {
+      if (res.ok) {
+        submitBtn.innerHTML = '<i class="ph ph-check-circle"></i> Message Sent!';
+        submitBtn.style.background = 'linear-gradient(135deg, var(--accent-emerald), #10b981)';
+        submitBtn.style.opacity = '1';
         form.reset();
-        submitBtn.innerHTML = originalHTML;
-        submitBtn.disabled = false;
-        submitBtn.style.background = '';
-      }, 3000);
-    }, 1500);
+        setTimeout(() => {
+          submitBtn.innerHTML = originalHTML;
+          submitBtn.disabled = false;
+          submitBtn.style.background = '';
+        }, 3000);
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      submitBtn.innerHTML = '<i class="ph ph-warning"></i> Failed — Try Again';
+      submitBtn.style.opacity = '1';
+      submitBtn.disabled = false;
+      setTimeout(() => { submitBtn.innerHTML = originalHTML; }, 3000);
+    }
   });
 });

@@ -577,44 +577,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 40);
   }
-
-  // ══════════════════════════════════════
-  // 17. Secure Form Action Injection
-  // ══════════════════════════════════════
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const btn = contactForm.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
-      const payload = {
-        name: document.getElementById('formName').value,
-        email: document.getElementById('formEmail').value,
-        message: document.getElementById('formMessage').value
-      };
-
-      try {
-        const res = await fetch('https://portfolio.divyakanthops.workers.dev', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          btn.textContent = '✓ Message Sent!';
-          contactForm.reset();
-        } else {
-          btn.textContent = 'Failed — Try Again';
-          btn.disabled = false;
-        }
-      } catch (err) {
-        btn.textContent = 'Error — Try Again';
-        btn.disabled = false;
-      }
-    });
-  }
-
 });
