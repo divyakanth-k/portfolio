@@ -409,3 +409,87 @@
   .floating-commands { display: none; }
   #particles-canvas { display: none; }
 }
+
+/* ══════════════════════════════════════
+   BOOT SEQUENCE
+   ══════════════════════════════════════ */
+.boot-sequence {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-8);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent-cyan);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.boot-sequence.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.boot-text {
+  max-width: 800px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.boot-text span.ok { color: var(--accent-cyan); }
+.boot-text span.warn { color: var(--accent-amber); }
+.boot-text span.system { color: var(--text-muted); }
+
+/* ══════════════════════════════════════
+   RADAR ANIMATION (About Section)
+   ══════════════════════════════════════ */
+.radar-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150vw;
+  height: 150vw;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 270deg,
+    rgba(var(--accent-cyan-rgb), 0.05) 360deg
+  );
+  border-radius: 50%;
+  animation: spinSlow 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(var(--accent-cyan-rgb), 0.1);
+  pointer-events: none;
+  z-index: 0;
+}
+.radar-ring-1 { width: 300px; height: 300px; }
+.radar-ring-2 { width: 600px; height: 600px; }
+
+/* ══════════════════════════════════════
+   LOCK ICON
+   ══════════════════════════════════════ */
+.hero-lock {
+  color: var(--accent-amber);
+  margin-right: var(--space-2);
+  display: inline-block;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.hero-lock.unlocked {
+  color: var(--accent-cyan);
+  transform: scale(1.1);
+}

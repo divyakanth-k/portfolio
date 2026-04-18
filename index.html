@@ -37,6 +37,13 @@
 <body>
 
   <!-- ═══════════════════════════════════
+       TERMINAL BOOT SEQUENCE
+       ═══════════════════════════════════ -->
+  <div id="boot-sequence" class="boot-sequence">
+    <div id="boot-text" class="boot-text"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════
        NAVIGATION
        ═══════════════════════════════════ -->
   <nav class="navbar" id="navbar">
@@ -92,7 +99,8 @@
 
     <div class="hero-content">
       <p class="hero-greeting">&gt; hello, I'm</p>
-      <h1 class="hero-name">
+      <h1 class="hero-name decrypt-text" data-text="Divyakanth Koppolu">
+        <i class="ph ph-lock-key hero-lock"></i>
         <span class="gradient-text">Divyakanth Koppolu</span>
       </h1>
       <div class="hero-title">
@@ -118,11 +126,16 @@
   <!-- ═══════════════════════════════════
        ABOUT SECTION
        ═══════════════════════════════════ -->
-  <section class="section" id="about">
+  <section class="section about-section" id="about">
+    <!-- Radar Animation Background -->
+    <div class="radar-bg"></div>
+    <div class="radar-ring radar-ring-1"></div>
+    <div class="radar-ring radar-ring-2"></div>
+
     <div class="container">
       <div class="section-header animate-on-scroll">
         <span class="section-label">// About</span>
-        <h2 class="section-title"><span class="mono-prefix">## </span>Who I Am</h2>
+        <h2 class="section-title decrypt-text" data-text="Who I Am"><span class="mono-prefix">## </span>Who I Am</h2>
         <p class="section-subtitle">DevOps & Security Engineer specializing in Linux administration, SCM, and on-prem
           security.</p>
       </div>
