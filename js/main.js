@@ -491,14 +491,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let currentDelay = 0;
-    
+
     lines.forEach((line, index) => {
       setTimeout(() => {
         const p = document.createElement('div');
         p.className = line.class;
         p.innerHTML = line.text;
         bootText.appendChild(p);
-        
+
         // Auto scroll
         bootSequence.scrollTop = bootSequence.scrollHeight;
 
@@ -524,10 +524,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 16. Decryption Text Effect
   // ══════════════════════════════════════
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
-  
+
   function triggerDecryption() {
     const decryptElements = document.querySelectorAll('.decrypt-text');
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('decrypted')) {
@@ -549,14 +549,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const lockIcon = element.querySelector('.hero-lock');
     const prefix = element.querySelector('.mono-prefix');
     const childSpan = element.querySelector('.gradient-text');
-    
+
     let targetEl = element;
     if (childSpan) targetEl = childSpan; // decrypt the inner span if it exists
-    
+
     // We only scramble the actual text content to avoid breaking HTML structure
     let iterations = 0;
     const maxIterations = 15;
-    
+
     const interval = setInterval(() => {
       targetEl.textContent = originalText.split('')
         .map((char, index) => {
@@ -565,9 +565,9 @@ document.addEventListener('DOMContentLoaded', () => {
           return chars[Math.floor(Math.random() * chars.length)];
         })
         .join('');
-      
-      iterations += 1/2; // speed controls how fast characters lock in
-      
+
+      iterations += 1 / 2; // speed controls how fast characters lock in
+
       if (iterations >= originalText.length) {
         clearInterval(interval);
         targetEl.textContent = originalText;
@@ -583,9 +583,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    // Decodes the base64 endpoint to prevent basic bots from scraping the git repo
-    const target = atob('aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vZi94ZWV2a2dnbw==');
-    contactForm.setAttribute('action', target);
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const payload = {
+        name: document.getElementById('formName').value,
+        email: document.getElementById('formEmail').value,
+        message: document.getElementById('formMessage').value
+      };
+
+      try {
+        const res = await fetch('https://your-worker.your-subdomain.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          btn.textContent = '✓ Message Sent!';
+          contactForm.reset();
+        } else {
+          btn.textContent = 'Failed — Try Again';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = 'Error — Try Again';
+        btn.disabled = false;
+      }
+    });
   }
 
 });
