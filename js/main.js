@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const titles = [
     'DevOps / Security Engineer',
     'Cloud Platform Engineer',
-    'Infrastructure Architect',
+    'Infrastructure Engineer',
     'Linux Systems Administrator',
     'SCM & Compliance Specialist'
   ];
