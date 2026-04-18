@@ -9,11 +9,16 @@
     content="Portfolio of Divyakanth Koppolu — Enterprise Infrastructure Engineer specializing in server administration, secure deployments, and cloud architecture.">
   <meta name="author" content="Divyakanth Koppolu">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Divyakanth Koppolu — DevOps & Security Engineer">
   <meta property="og:description"
     content="Enterprise Infrastructure Engineer specializing in server administration, secure deployments, and cloud architecture.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://divyakanth-k.github.io/portfolio/">
+  <meta property="og:image" content="https://divyakanth-k.github.io/portfolio/favicon.svg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +121,7 @@
           <i class="ph ph-folder-open"></i> View Projects
         </a>
         <a href="#contact" class="btn btn-outline">
-          <i class="ph ph-download-simple"></i> Download Resume
+          <i class="ph ph-paper-plane-tilt"></i> Contact Me
         </a>
       </div>
     </div>
@@ -964,17 +969,17 @@
         </div>
 
         <div class="contact-form-wrapper glass-panel animate-on-scroll delay-2">
-          <form id="contactForm" novalidate>
+          <form method="POST" id="contactForm" class="contact-form" novalidate>
             <div class="form-group">
-              <input type="text" class="form-input" id="formName" placeholder=" " required>
+              <input type="text" name="name" class="form-input" id="formName" placeholder=" " required>
               <label for="formName" class="form-label">Name</label>
             </div>
             <div class="form-group">
-              <input type="email" class="form-input" id="formEmail" placeholder=" " required>
+              <input type="email" name="email" class="form-input" id="formEmail" placeholder=" " required>
               <label for="formEmail" class="form-label">Email</label>
             </div>
             <div class="form-group">
-              <textarea class="form-input" id="formMessage" placeholder=" " required></textarea>
+              <textarea name="message" class="form-input" id="formMessage" placeholder=" " required></textarea>
               <label for="formMessage" class="form-label">Message</label>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">

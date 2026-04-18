@@ -578,4 +578,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 40);
   }
 
+  // ══════════════════════════════════════
+  // 17. Secure Form Action Injection
+  // ══════════════════════════════════════
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    // Decodes the base64 endpoint to prevent basic bots from scraping the git repo
+    const target = atob('aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vZi94ZWV2a2dnbw==');
+    contactForm.setAttribute('action', target);
+  }
+
 });
