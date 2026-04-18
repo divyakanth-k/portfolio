@@ -1,0 +1,125 @@
+/* ============================================
+   Base Styles — DevOps Terminal Theme
+   ============================================ */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+/* ── Headings (Terminal / Mono style) ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--text-6xl); font-weight: var(--weight-bold); }
+h2 { font-size: var(--text-4xl); font-weight: var(--weight-semibold); }
+h3 { font-size: var(--text-2xl); font-weight: var(--weight-medium); }
+h4 { font-size: var(--text-xl);  font-weight: var(--weight-medium); }
+
+/* ── Paragraphs ── */
+p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+/* ── Links ── */
+a {
+  color: var(--accent-cyan);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: #33e8c0;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(var(--accent-cyan-rgb), 0.3);
+  color: var(--text-heading);
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-light);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent-cyan-rgb), 0.4);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-surface-light) var(--bg-primary);
+}
+
+/* ── Section wrapper ── */
+.section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Section Headers ── */
+.section-header {
+  margin-bottom: var(--space-16);
+  text-align: center;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.section-title {
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+/* ── Mono prefix styling ── */
+.mono-prefix {
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-normal);
+}
+
+/* ── Gradient text utility ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
