@@ -597,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       try {
-        const res = await fetch('https://your-worker.your-subdomain.workers.dev', {
+        const res = await fetch('https://portfolio.divyakanthops.workers.dev', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
