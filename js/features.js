@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { label: 'Go to Contact',    icon: 'ph-envelope',       type: 'nav',    action: () => scrollTo('#contact') },
     { label: 'Open GitHub',      icon: 'ph-github-logo',    type: 'link',   action: () => window.open('https://github.com/divyakanth-k', '_blank') },
     { label: 'Open LinkedIn',    icon: 'ph-linkedin-logo',  type: 'link',   action: () => window.open('https://www.linkedin.com/in/divyakanth-k/', '_blank') },
+    { label: 'Open Blog',        icon: 'ph-notebook',       type: 'link',   action: () => { closePalette(); window.location.href = 'blog.html'; } },
     { label: 'Copy Email',       icon: 'ph-copy',           type: 'action', action: () => { closePalette(); copyEmailBtn?.click(); } },
     { label: 'Toggle Theme',     icon: 'ph-sun',            type: 'action', action: () => { toggleTheme(); closePalette(); } },
     { label: 'Back to Top',      icon: 'ph-arrow-up',       type: 'action', action: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); closePalette(); } },
