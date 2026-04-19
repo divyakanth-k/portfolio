@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://divyakanth-k.github.io/portfolio/sitemap.xml

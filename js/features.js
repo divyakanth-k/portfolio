@@ -228,8 +228,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   cmdInput.addEventListener("input", () => {
-    const q = cmdInput.value.toLowerCase();
-    filteredCommands = commands.filter((c) => c.label.toLowerCase().includes(q));
+    const q = cmdInput.value.toLowerCase().trim();
+
+    // Developer Easter Eggs
+    if (q === "sudo" || q === "su") {
+      filteredCommands = [
+        {
+          label: "Nice try. This incident will be reported.",
+          icon: "ph-warning",
+          type: "action",
+          action: () => {
+            alert("User is not in the sudoers file. This incident will be reported to... yourself.");
+            closePalette();
+          },
+        },
+      ];
+    } else if (q === "rm -rf /" || q === "hack") {
+      filteredCommands = [
+        {
+          label: "System lockdown initiated...",
+          icon: "ph-lock-key",
+          type: "action",
+          action: () => {
+            window.location.href = "404.html";
+          },
+        },
+      ];
+    } else {
+      filteredCommands = commands.filter((c) => c.label.toLowerCase().includes(q));
+    }
+
     selectedIndex = 0;
     renderCommands(filteredCommands);
   });

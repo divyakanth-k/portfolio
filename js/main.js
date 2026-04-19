@@ -586,4 +586,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 40);
   }
+
+  // Register Service Worker for PWA Offline mode
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch((error) => {
+        console.error("SW Registration failed:", error);
+      });
+    });
+  }
 });
