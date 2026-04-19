@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hidden Easter Eggs in the Command Palette — Divyakanth Koppolu</title>
+    <meta
+      name="description"
+      content="A guide to discovering the hidden terminal commands and kernel panics built into the Command Palette of this site."
+    />
+    <meta name="author" content="Divyakanth Koppolu" />
+
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hidden Easter Eggs in the Command Palette — Divyakanth Koppolu" />
+    <meta
+      property="og:description"
+      content="A guide to discovering the hidden terminal commands and kernel panics built into the Command Palette of this site."
+    />
+    <meta property="og:image" content="https://divyakanth-k.github.io/portfolio/og-image.png" />
+    <meta property="og:type" content="article" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/features.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+
+    <style>
+      /* ═══════════════════════════════════
+       Single Post Specific Styles
+       ═══════════════════════════════════ */
+      .post-header {
+        padding: 180px 0 60px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: var(--space-12);
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-4);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        margin-bottom: var(--space-6);
+      }
+
+      .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+
+      .post-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--text-heading);
+        margin-bottom: var(--space-6);
+        line-height: var(--leading-tight);
+      }
+
+      .post-content {
+        max-width: 800px;
+        margin: 0 auto 100px;
+      }
+
+      /* Simple markdown-like typography scaling */
+      .post-content h2 {
+        margin: var(--space-12) 0 var(--space-4);
+        color: var(--text-heading);
+      }
+
+      .post-content h3 {
+        margin: var(--space-8) 0 var(--space-3);
+        color: var(--text-heading);
+      }
+
+      .post-content p {
+        margin-bottom: var(--space-6);
+        font-size: 1.125rem;
+      }
+
+      .post-content ul,
+      .post-content ol {
+        margin-bottom: var(--space-6);
+        margin-left: var(--space-6);
+      }
+
+      .post-content li {
+        margin-bottom: var(--space-2);
+      }
+
+      .post-content pre {
+        margin-bottom: var(--space-6);
+      }
+
+      .post-content blockquote {
+        border-left: 4px solid var(--accent-cyan);
+        background: var(--bg-surface);
+        padding: var(--space-4) var(--space-6);
+        margin-bottom: var(--space-6);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar--visible" id="navbar">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
+
+        <div class="nav-links" id="navLinks">
+          <a href="../index.html#about" class="nav-link">About</a>
+          <a href="../index.html#stack" class="nav-link">Stack</a>
+          <a href="../index.html#experience" class="nav-link">Experience</a>
+          <a href="../index.html#projects" class="nav-link">Projects</a>
+          <a href="../index.html#education" class="nav-link">Education</a>
+          <a href="../index.html#contact" class="nav-link">Contact</a>
+          <a href="../blog.html" class="nav-link active">Blog</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-3)">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="ph ph-sun"></i>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- POST HEADER -->
+    <header class="post-header">
+      <div class="container" style="max-width: 800px">
+        <div class="post-meta">
+          <span><i class="ph ph-calendar"></i> April 19, 2026</span>
+          <span><i class="ph ph-tag"></i> Portfolio</span>
+          <span><i class="ph ph-clock"></i> 2 min read</span>
+        </div>
+        <h1 class="post-title">Hidden Easter Eggs in the Command Palette</h1>
+        <a
+          href="../blog.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+          "
+        >
+          <i class="ph ph-arrow-left"></i> Back to Logs
+        </a>
+      </div>
+    </header>
+
+    <!-- POST CONTENT -->
+    <main class="post-content container">
+      <article>
+        <p class="lead">
+          While building this portfolio, I wanted to inject some of the classic DevOps and SysAdmin humor that
+          infrastructure engineers deal with daily. Instead of just standard navigation, the site contains hidden
+          commands inside the global Command Palette.
+        </p>
+
+        <h2>1. Accessing the Command Palette</h2>
+        <p>
+          First, to trigger the interface, simply press <kbd>Cmd</kbd> + <kbd>K</kbd> (or <kbd>Ctrl</kbd> +
+          <kbd>K</kbd> on Windows). If you're on a mobile device, you can tap the search icon in the navigation bar.
+        </p>
+
+        <blockquote>
+          "A good terminal is like a good joke; if you have to explain it, it's not that good. Unless it's an Easter
+          egg, then you definitely need a blog post."
+        </blockquote>
+
+        <h2>2. The 'sudo' Incident</h2>
+        <p>
+          We've all been there—trying to execute a command on a remote Linux server only to be met with permission
+          denied. If you type <code>sudo</code> or <code>su</code> into the palette search bar, the UI will intercept it
+          and throw the classic warning:
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+          </div>
+          <pre><code class="language-bash">$ sudo root
+User is not in the sudoers file. This incident will be reported to... yourself.</code></pre>
+        </div>
+
+        <h2>3. Kernel Panic (rm -rf /)</h2>
+        <p>
+          If you're feeling destructive and type <code>hack</code> or <code>rm -rf /</code>, the site will initiate a
+          "system lockdown" and redirect you to a completely custom <code>404.html</code> page.
+        </p>
+        <p>
+          This 404 page simulates a Kubernetes Ingress Controller failure or a pod routing misconfiguration complete
+          with time-stamped terminal logs, a blinking cursor, and an animated <strong>FATAL</strong> status message.
+        </p>
+
+        <h2>How it works</h2>
+        <p>
+          The Easter eggs are built in pure Vanilla JavaScript by attaching a dynamic listener to the
+          <code>input</code> event of the search field. Before the standard filtering logic runs, we catch specific
+          strings using simple conditional matching:
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">javascript</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-javascript">cmdInput.addEventListener("input", () => {
+  const q = cmdInput.value.toLowerCase().trim();
+
+  if (q === "rm -rf /") {
+    // Initiate system lockdown
+    window.location.href = "404.html";
+  }
+});</code></pre>
+        </div>
+
+        <p>Try them out for yourself right now by hitting <kbd>Cmd+K</kbd>!</p>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-socials">
+          <a
+            href="https://github.com/divyakanth-k"
+            class="social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-github-logo"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/divyakanth-k/"
+            class="social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
+        </div>
+        <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/blog.js"></script>
+  </body>
+</html>
