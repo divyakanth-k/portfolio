@@ -21,3 +21,12 @@ repos:
       - id: prettier
         types_or: [html, css, javascript]
         args: ['--prose-wrap=always', '--print-width=120']
+
+  - repo: local
+    hooks:
+      - id: generate-sitemap
+        name: Generate Dynamic Sitemap
+        entry: python3 scripts/generate_sitemap.py
+        language: system
+        pass_filenames: false
+        always_run: true
