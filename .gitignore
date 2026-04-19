@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Node (just in case you add npm tools later)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# pre-commit / secrets
+.secrets.baseline
