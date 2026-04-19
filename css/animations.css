@@ -17,8 +17,12 @@
 
 /* ── Fade In ── */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ── Slide In Left ── */
@@ -47,40 +51,65 @@
 
 /* ── Glow Pulse (CTA button) ── */
 @keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(var(--accent-cyan-rgb), 0.25),
-                0 0 40px rgba(var(--accent-cyan-rgb), 0.1);
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(var(--accent-cyan-rgb), 0.25),
+      0 0 40px rgba(var(--accent-cyan-rgb), 0.1);
   }
   50% {
-    box-shadow: 0 0 35px rgba(var(--accent-cyan-rgb), 0.4),
-                0 0 60px rgba(var(--accent-cyan-rgb), 0.2);
+    box-shadow:
+      0 0 35px rgba(var(--accent-cyan-rgb), 0.4),
+      0 0 60px rgba(var(--accent-cyan-rgb), 0.2);
   }
 }
 
 /* ── Cursor Blink (hero typing) ── */
 @keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ── Gradient Shift (hero background) ── */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ── Border Shimmer (featured card) ── */
 @keyframes borderShimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 /* ── Float (decorative elements) ── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-15px) rotate(1deg); }
-  66% { transform: translateY(8px) rotate(-1deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(8px) rotate(-1deg);
+  }
 }
 
 /* ── Pulse Ring (timeline dots) ── */
@@ -97,8 +126,13 @@
 
 /* ── Grid Pattern Fade ── */
 @keyframes gridFade {
-  0%, 100% { opacity: 0.03; }
-  50% { opacity: 0.07; }
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.07;
+  }
 }
 
 /* ══════════════════════════════════════
@@ -107,38 +141,60 @@
 
 /* ── Hero Name Glitch Effect ── */
 @keyframes glitch {
-  0%, 94%, 100% {
+  0%,
+  94%,
+  100% {
     transform: translate(0);
     text-shadow: 0 0 40px rgba(var(--accent-cyan-rgb), 0.15);
   }
   95% {
     transform: translate(-2px, 1px);
-    text-shadow: 2px 0 var(--accent-emerald), -2px 0 var(--accent-amber);
+    text-shadow:
+      2px 0 var(--accent-emerald),
+      -2px 0 var(--accent-amber);
   }
   96% {
     transform: translate(2px, -1px);
-    text-shadow: -2px 0 var(--accent-emerald), 2px 0 var(--accent-amber);
+    text-shadow:
+      -2px 0 var(--accent-emerald),
+      2px 0 var(--accent-amber);
   }
   97% {
     transform: translate(-1px, 2px);
-    text-shadow: 1px 0 var(--accent-amber), -1px 0 var(--accent-cyan);
+    text-shadow:
+      1px 0 var(--accent-amber),
+      -1px 0 var(--accent-cyan);
   }
   98% {
     transform: translate(1px, -2px);
-    text-shadow: -1px 0 var(--accent-cyan), 1px 0 var(--accent-emerald);
+    text-shadow:
+      -1px 0 var(--accent-cyan),
+      1px 0 var(--accent-emerald);
   }
 }
 
 .hero-name {
-  animation: fadeUp 0.8s var(--ease-out) 0.4s forwards, glitch 8s ease-in-out 2s infinite;
+  animation:
+    fadeUp 0.8s var(--ease-out) 0.4s forwards,
+    glitch 8s ease-in-out 2s infinite;
 }
 
 /* ── Scanning Line Effect (security touch) ── */
 @keyframes scanLine {
-  0% { top: -2px; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: calc(100% + 2px); opacity: 0; }
+  0% {
+    top: -2px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% + 2px);
+    opacity: 0;
+  }
 }
 
 /* ── Data Stream (floating code) ── */
@@ -147,8 +203,12 @@
     transform: translateY(110vh) translateX(0);
     opacity: 0;
   }
-  5% { opacity: 0.15; }
-  95% { opacity: 0.15; }
+  5% {
+    opacity: 0.15;
+  }
+  95% {
+    opacity: 0.15;
+  }
   100% {
     transform: translateY(-20vh) translateX(20px);
     opacity: 0;
@@ -157,13 +217,18 @@
 
 /* ── Orbit (floating elements) ── */
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
 }
 
 /* ── Shield Pulse (security icon) ── */
 @keyframes shieldPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(var(--accent-amber-rgb), 0.3);
   }
   50% {
@@ -173,8 +238,12 @@
 
 /* ── Terminal Typing Line ── */
 @keyframes terminalLine {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 /* ── Matrix Rain Fade ── */
@@ -183,8 +252,12 @@
     transform: translateY(-100%);
     opacity: 0;
   }
-  10% { opacity: 0.3; }
-  90% { opacity: 0.3; }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
   100% {
     transform: translateY(100vh);
     opacity: 0;
@@ -193,19 +266,33 @@
 
 /* ── Breathe (subtle scale pulse) ── */
 @keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
 }
 
 /* ── Neon Flicker ── */
 @keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
     text-shadow:
       0 0 7px rgba(var(--accent-cyan-rgb), 0.6),
       0 0 20px rgba(var(--accent-cyan-rgb), 0.3),
       0 0 40px rgba(var(--accent-cyan-rgb), 0.15);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     text-shadow: none;
   }
 }
@@ -219,21 +306,23 @@
 
 .tilt-card .glass-panel {
   transform-style: preserve-3d;
-  transition: transform 0.4s var(--ease-out),
-              border-color var(--duration-base) var(--ease-out),
-              box-shadow var(--duration-base) var(--ease-out);
+  transition:
+    transform 0.4s var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 /* ══════════════════════════════════════
    Scan Line on Cards (Security)
    ══════════════════════════════════════ */
 .project-card::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     transparent,
     rgba(var(--accent-cyan-rgb), 0.4),
     rgba(var(--accent-amber-rgb), 0.3),
@@ -283,16 +372,56 @@
   user-select: none;
 }
 
-.floating-cmd:nth-child(1) { left: 5%; animation-duration: 22s; animation-delay: 0s; }
-.floating-cmd:nth-child(2) { left: 15%; animation-duration: 18s; animation-delay: -4s; }
-.floating-cmd:nth-child(3) { left: 25%; animation-duration: 25s; animation-delay: -8s; }
-.floating-cmd:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: -2s; }
-.floating-cmd:nth-child(5) { left: 55%; animation-duration: 23s; animation-delay: -6s; }
-.floating-cmd:nth-child(6) { left: 65%; animation-duration: 19s; animation-delay: -10s; }
-.floating-cmd:nth-child(7) { left: 75%; animation-duration: 24s; animation-delay: -14s; }
-.floating-cmd:nth-child(8) { left: 85%; animation-duration: 21s; animation-delay: -3s; }
-.floating-cmd:nth-child(9) { left: 92%; animation-duration: 26s; animation-delay: -7s; }
-.floating-cmd:nth-child(10) { left: 35%; animation-duration: 28s; animation-delay: -12s; }
+.floating-cmd:nth-child(1) {
+  left: 5%;
+  animation-duration: 22s;
+  animation-delay: 0s;
+}
+.floating-cmd:nth-child(2) {
+  left: 15%;
+  animation-duration: 18s;
+  animation-delay: -4s;
+}
+.floating-cmd:nth-child(3) {
+  left: 25%;
+  animation-duration: 25s;
+  animation-delay: -8s;
+}
+.floating-cmd:nth-child(4) {
+  left: 40%;
+  animation-duration: 20s;
+  animation-delay: -2s;
+}
+.floating-cmd:nth-child(5) {
+  left: 55%;
+  animation-duration: 23s;
+  animation-delay: -6s;
+}
+.floating-cmd:nth-child(6) {
+  left: 65%;
+  animation-duration: 19s;
+  animation-delay: -10s;
+}
+.floating-cmd:nth-child(7) {
+  left: 75%;
+  animation-duration: 24s;
+  animation-delay: -14s;
+}
+.floating-cmd:nth-child(8) {
+  left: 85%;
+  animation-duration: 21s;
+  animation-delay: -3s;
+}
+.floating-cmd:nth-child(9) {
+  left: 92%;
+  animation-duration: 26s;
+  animation-delay: -7s;
+}
+.floating-cmd:nth-child(10) {
+  left: 35%;
+  animation-duration: 28s;
+  animation-delay: -12s;
+}
 
 /* ══════════════════════════════════════
    Enhanced Stat Counter Glow
@@ -314,8 +443,9 @@
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-out),
-              transform 0.8s var(--ease-out);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
 }
 
 .animate-on-scroll.visible {
@@ -324,28 +454,46 @@
 }
 
 /* Stagger delays */
-.animate-on-scroll.delay-1 { transition-delay: 100ms; }
-.animate-on-scroll.delay-2 { transition-delay: 200ms; }
-.animate-on-scroll.delay-3 { transition-delay: 300ms; }
-.animate-on-scroll.delay-4 { transition-delay: 400ms; }
-.animate-on-scroll.delay-5 { transition-delay: 500ms; }
-.animate-on-scroll.delay-6 { transition-delay: 600ms; }
-.animate-on-scroll.delay-7 { transition-delay: 700ms; }
-.animate-on-scroll.delay-8 { transition-delay: 800ms; }
+.animate-on-scroll.delay-1 {
+  transition-delay: 100ms;
+}
+.animate-on-scroll.delay-2 {
+  transition-delay: 200ms;
+}
+.animate-on-scroll.delay-3 {
+  transition-delay: 300ms;
+}
+.animate-on-scroll.delay-4 {
+  transition-delay: 400ms;
+}
+.animate-on-scroll.delay-5 {
+  transition-delay: 500ms;
+}
+.animate-on-scroll.delay-6 {
+  transition-delay: 600ms;
+}
+.animate-on-scroll.delay-7 {
+  transition-delay: 700ms;
+}
+.animate-on-scroll.delay-8 {
+  transition-delay: 800ms;
+}
 
 /* Slide variants */
 .animate-slide-left {
   opacity: 0;
   transform: translateX(-40px);
-  transition: opacity 0.8s var(--ease-out),
-              transform 0.8s var(--ease-out);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
 }
 
 .animate-slide-right {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 0.8s var(--ease-out),
-              transform 0.8s var(--ease-out);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
 }
 
 .animate-slide-left.visible,
@@ -358,8 +506,9 @@
 .animate-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.8s var(--ease-out),
-              transform 0.8s var(--ease-out);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
 }
 
 .animate-scale.visible {
@@ -371,9 +520,10 @@
    Enhanced Hover: Tech Tiles Glow
    ══════════════════════════════════════ */
 .tech-tile:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
-              0 0 20px rgba(var(--accent-cyan-rgb), 0.12),
-              inset 0 0 30px rgba(var(--accent-cyan-rgb), 0.03);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(var(--accent-cyan-rgb), 0.12),
+    inset 0 0 30px rgba(var(--accent-cyan-rgb), 0.03);
 }
 
 /* ══════════════════════════════════════
@@ -385,13 +535,16 @@
 
 .timeline-dot.deployed {
   transform: translateX(-50%) scale(1.3);
-  box-shadow: 0 0 20px rgba(var(--accent-cyan-rgb), 0.6),
-              0 0 40px rgba(var(--accent-cyan-rgb), 0.3);
+  box-shadow:
+    0 0 20px rgba(var(--accent-cyan-rgb), 0.6),
+    0 0 40px rgba(var(--accent-cyan-rgb), 0.3);
 }
 
 /* ── Prefers reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -406,8 +559,12 @@
     transition: none;
   }
 
-  .floating-commands { display: none; }
-  #particles-canvas { display: none; }
+  .floating-commands {
+    display: none;
+  }
+  #particles-canvas {
+    display: none;
+  }
 }
 
 /* ══════════════════════════════════════
@@ -425,7 +582,9 @@
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--accent-cyan);
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
 }
 
 .boot-sequence.hidden {
@@ -439,9 +598,15 @@
   white-space: pre-wrap;
 }
 
-.boot-text span.ok { color: var(--accent-cyan); }
-.boot-text span.warn { color: var(--accent-amber); }
-.boot-text span.system { color: var(--text-muted); }
+.boot-text span.ok {
+  color: var(--accent-cyan);
+}
+.boot-text span.warn {
+  color: var(--accent-amber);
+}
+.boot-text span.system {
+  color: var(--text-muted);
+}
 
 /* ══════════════════════════════════════
    RADAR ANIMATION (About Section)
@@ -476,8 +641,14 @@
   pointer-events: none;
   z-index: 0;
 }
-.radar-ring-1 { width: 300px; height: 300px; }
-.radar-ring-2 { width: 600px; height: 600px; }
+.radar-ring-1 {
+  width: 300px;
+  height: 300px;
+}
+.radar-ring-2 {
+  width: 600px;
+  height: 600px;
+}
 
 /* ══════════════════════════════════════
    LOCK ICON
@@ -486,7 +657,9 @@
   color: var(--accent-amber);
   margin-right: var(--space-2);
   display: inline-block;
-  transition: color 0.4s ease, transform 0.4s ease;
+  transition:
+    color 0.4s ease,
+    transform 0.4s ease;
 }
 
 .hero-lock.unlocked {

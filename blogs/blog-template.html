@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Article Title Here — Divyakanth Koppolu</title>
+    <meta name="description" content="A brief 1-2 sentence description of what this article is about for SEO." />
+    <meta name="author" content="Divyakanth Koppolu" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Your Article Title Here — Divyakanth Koppolu" />
+    <meta property="og:description" content="A brief 1-2 sentence description of what this article is about for SEO." />
+    <meta property="og:type" content="article" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/features.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+
+    <style>
+      /* ═══════════════════════════════════
+       Single Post Specific Styles
+       ═══════════════════════════════════ */
+      .post-header {
+        padding: 180px 0 60px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: var(--space-12);
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-4);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        margin-bottom: var(--space-6);
+      }
+
+      .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+
+      .post-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--text-heading);
+        margin-bottom: var(--space-6);
+        line-height: var(--leading-tight);
+      }
+
+      .post-content {
+        max-width: 800px;
+        margin: 0 auto 100px;
+      }
+
+      /* Simple markdown-like typography scaling */
+      .post-content h2 {
+        margin: var(--space-12) 0 var(--space-4);
+        color: var(--text-heading);
+      }
+      .post-content h3 {
+        margin: var(--space-8) 0 var(--space-3);
+        color: var(--text-heading);
+      }
+      .post-content p {
+        margin-bottom: var(--space-6);
+        font-size: 1.125rem;
+      }
+      .post-content ul,
+      .post-content ol {
+        margin-bottom: var(--space-6);
+        margin-left: var(--space-6);
+      }
+      .post-content li {
+        margin-bottom: var(--space-2);
+      }
+      .post-content pre {
+        margin-bottom: var(--space-6);
+      }
+      .post-content blockquote {
+        border-left: 4px solid var(--accent-cyan);
+        background: var(--bg-surface);
+        padding: var(--space-4) var(--space-6);
+        margin-bottom: var(--space-6);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar--visible" id="navbar">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
+
+        <div class="nav-links" id="navLinks">
+          <a href="../index.html#about" class="nav-link">About</a>
+          <a href="../index.html#stack" class="nav-link">Stack</a>
+          <a href="../index.html#experience" class="nav-link">Experience</a>
+          <a href="../index.html#projects" class="nav-link">Projects</a>
+          <a href="../index.html#education" class="nav-link">Education</a>
+          <a href="../index.html#contact" class="nav-link">Contact</a>
+          <a href="../blog.html" class="nav-link active">Blog</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-3)">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="ph ph-sun"></i>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- POST HEADER -->
+    <header class="post-header">
+      <div class="container" style="max-width: 800px">
+        <div class="post-meta">
+          <span><i class="ph ph-calendar"></i> April 20, 2026</span>
+          <span><i class="ph ph-tag"></i> Kubernetes</span>
+          <span><i class="ph ph-clock"></i> 5 min read</span>
+        </div>
+        <h1 class="post-title">Your Article Title Here</h1>
+        <a href="../blog.html" class="btn-outline" style="display: inline-flex; align-items: center; gap: 8px">
+          <i class="ph ph-arrow-left"></i> Back to Logs
+        </a>
+      </div>
+    </header>
+
+    <!-- POST CONTENT -->
+    <main class="post-content container">
+      <article>
+        <p class="lead">
+          This is the introductory paragraph. Make it bold or large to catch attention by keeping it clean and readable.
+          Below is a sample layout of how an article might look.
+        </p>
+
+        <h2>1. The Problem Space</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec efficitur turpis. Fusce eget lacus non
+          nunc consequat interdum. Integer ullamcorper justo et neque malesuada pharetra.
+        </p>
+
+        <blockquote>
+          "Infrastructure as code is great until you forget what state your actual infrastructure is in."
+        </blockquote>
+
+        <h3>1.1 Identifying the Symptoms</h3>
+        <p>Here are a few things to look out for:</p>
+        <ul>
+          <li>CPU spikes during deployments</li>
+          <li>Memory leaks on Node 4</li>
+          <li>Unexplained 503 errors on the ingestion endpoint</li>
+        </ul>
+
+        <h2>2. The Solution</h2>
+        <p>
+          By applying a generic template, we can structure our knowledge effectively. Here's a code snippet of how a
+          solution might look.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">yaml</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+spec:
+  containers:
+  - name: app
+    image: my-app:1.0.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"</code></pre>
+        </div>
+
+        <p>
+          That's it! If you stick to this template, all your articles will maintain a clean and consistent readability.
+        </p>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-socials">
+          <a
+            href="https://github.com/divyakanth-k"
+            class="social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-github-logo"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/divyakanth-k/"
+            class="social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
+        </div>
+        <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/blog.js"></script>
+  </body>
+</html>
