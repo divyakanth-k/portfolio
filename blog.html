@@ -1,173 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Divyakanth Koppolu</title>
+    <meta
+      name="description"
+      content="Technical blog by Divyakanth Koppolu — Notes on DevOps, Cloud Infrastructure, Security, and Linux Administration."
+    />
+    <meta name="author" content="Divyakanth Koppolu" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Divyakanth Koppolu</title>
-  <meta name="description"
-    content="Technical blog by Divyakanth Koppolu — Notes on DevOps, Cloud Infrastructure, Security, and Linux Administration.">
-  <meta name="author" content="Divyakanth Koppolu">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog — Divyakanth Koppolu" />
+    <meta
+      property="og:description"
+      content="Technical blog — Notes on DevOps, Cloud Infrastructure, Security, and Linux Administration."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://divyakanth-k.github.io/portfolio/blog.html" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Blog — Divyakanth Koppolu">
-  <meta property="og:description"
-    content="Technical blog — Notes on DevOps, Cloud Infrastructure, Security, and Linux Administration.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://divyakanth-k.github.io/portfolio/blog.html">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
 
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/features.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+  </head>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/features.css">
-  <link rel="stylesheet" href="css/blog.css">
-</head>
-
-<body>
-
-  <!-- ═══════════════════════════════════
+  <body>
+    <!-- ═══════════════════════════════════
        NAVIGATION
        ═══════════════════════════════════ -->
-  <nav class="navbar navbar--visible" id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="nav-logo-prefix">&gt;_</span> DK
-      </a>
+    <nav class="navbar navbar--visible" id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
-      <div class="nav-links" id="navLinks">
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="index.html#stack" class="nav-link">Stack</a>
-        <a href="index.html#experience" class="nav-link">Experience</a>
-        <a href="index.html#projects" class="nav-link">Projects</a>
-        <a href="index.html#education" class="nav-link">Education</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
-        <a href="blog.html" class="nav-link active">Blog</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#stack" class="nav-link">Stack</a>
+          <a href="index.html#experience" class="nav-link">Experience</a>
+          <a href="index.html#projects" class="nav-link">Projects</a>
+          <a href="index.html#education" class="nav-link">Education</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-3)">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="ph ph-sun"></i>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
+    </nav>
 
-      <div style="display:flex;align-items:center;gap:var(--space-3);">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <i class="ph ph-sun"></i>
-        </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        BLOG HERO
        ═══════════════════════════════════ -->
-  <section class="blog-hero">
-    <div class="blog-hero-bg"></div>
-    <div class="blog-hero-grid"></div>
-    <div class="container">
-      <div class="blog-hero-content">
-        <span class="section-label">// Blog</span>
-        <h1 class="blog-hero-title decrypt-text" data-text="Notes & Logs">
-          <span class="mono-prefix">&gt;_ </span>
-          <span class="gradient-text">Notes & Logs</span>
-        </h1>
-        <p class="blog-hero-subtitle">
-          Technical notes, infrastructure tips, and field observations from building and securing systems at scale.
-        </p>
-        <div class="blog-search-wrapper glass-panel">
-          <i class="ph ph-magnifying-glass"></i>
-          <input type="text" id="blogSearch" class="blog-search-input" placeholder="Search posts..."
-            autocomplete="off" spellcheck="false">
-          <span class="blog-search-count" id="searchCount"></span>
+    <section class="blog-hero">
+      <div class="blog-hero-bg"></div>
+      <div class="blog-hero-grid"></div>
+      <div class="container">
+        <div class="blog-hero-content">
+          <span class="section-label">// Blog</span>
+          <h1 class="blog-hero-title decrypt-text" data-text="Notes & Logs">
+            <span class="mono-prefix">&gt;_ </span>
+            <span class="gradient-text">Notes & Logs</span>
+          </h1>
+          <p class="blog-hero-subtitle">
+            Technical notes, infrastructure tips, and field observations from building and securing systems at scale.
+          </p>
+          <div class="blog-search-wrapper glass-panel">
+            <i class="ph ph-magnifying-glass"></i>
+            <input
+              type="text"
+              id="blogSearch"
+              class="blog-search-input"
+              placeholder="Search posts..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <span class="blog-search-count" id="searchCount"></span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        BLOG POST LISTING
        ═══════════════════════════════════ -->
-  <section class="blog-listing">
-    <div class="container">
+    <section class="blog-listing">
+      <div class="container">
+        <!-- 2026 -->
+        <div class="blog-year-group" data-year="2026">
+          <div class="blog-year-header">
+            <span class="blog-year-label">2026</span>
+            <span class="blog-year-line"></span>
+            <span class="blog-year-count"></span>
+          </div>
 
-      <!-- 2026 -->
-      <div class="blog-year-group" data-year="2026">
-        <div class="blog-year-header">
-          <span class="blog-year-label">2026</span>
-          <span class="blog-year-line"></span>
-          <span class="blog-year-count"></span>
+          <ul class="blog-post-list">
+            <li class="blog-post-item">
+              <span class="blog-post-date">Apr 20</span>
+              <a href="blogs/blog-template.html" class="blog-post-link">Welcome to My Technical Log</a>
+              <span class="blog-post-tag">Portfolio</span>
+            </li>
+            <!-- New posts for 2026 go here -->
+          </ul>
         </div>
 
-        <ul class="blog-post-list">
-          <li class="blog-post-item">
-            <span class="blog-post-date">Apr 20</span>
-            <a href="blogs/blog-template.html" class="blog-post-link">Welcome to My Technical Log</a>
-            <span class="blog-post-tag">Portfolio</span>
-          </li>
-          <!-- New posts for 2026 go here -->
-        </ul>
-      </div>
+        <!-- 2025 -->
+        <div class="blog-year-group" data-year="2025">
+          <div class="blog-year-header">
+            <span class="blog-year-label">2025</span>
+            <span class="blog-year-line"></span>
+            <span class="blog-year-count"></span>
+          </div>
 
-      <!-- 2025 -->
-      <div class="blog-year-group" data-year="2025">
-        <div class="blog-year-header">
-          <span class="blog-year-label">2025</span>
-          <span class="blog-year-line"></span>
-          <span class="blog-year-count"></span>
+          <ul class="blog-post-list">
+            <!-- New posts for 2025 go here -->
+          </ul>
         </div>
-
-        <ul class="blog-post-list">
-          <!-- New posts for 2025 go here -->
-        </ul>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        FOOTER
        ═══════════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-socials">
-        <a href="https://github.com/divyakanth-k" class="social-link" aria-label="GitHub" target="_blank"
-          rel="noopener"><i class="ph ph-github-logo"></i></a>
-        <a href="https://www.linkedin.com/in/divyakanth-k/" class="social-link" aria-label="LinkedIn" target="_blank"
-          rel="noopener"><i class="ph ph-linkedin-logo"></i></a>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-socials">
+          <a
+            href="https://github.com/divyakanth-k"
+            class="social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-github-logo"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/divyakanth-k/"
+            class="social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
+        </div>
+        <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
       </div>
-      <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        BACK TO TOP
        ═══════════════════════════════════ -->
-  <button id="back-to-top" aria-label="Back to top">
-    <i class="ph ph-arrow-up"></i> top
-  </button>
+    <button id="back-to-top" aria-label="Back to top"><i class="ph ph-arrow-up"></i> top</button>
 
-
-  <!-- Scripts -->
-  <script src="js/blog.js"></script>
-
-</body>
-
+    <!-- Scripts -->
+    <script src="js/blog.js"></script>
+  </body>
 </html>

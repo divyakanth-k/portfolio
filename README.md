@@ -8,7 +8,7 @@
 ## 👨‍💻 About Me
 With over 9 years in the IT industry, I specialize in cloud-native infrastructure, platform engineering, and security operations. My expertise spans designing Terraform module ecosystems at scale (247+ modules), operating multi-cluster Kubernetes platforms, and building end-to-end observability and incident management pipelines.
 
-I've managed mission-critical election systems infrastructure for LA County, designed air-gapped ICS environments, and built multi-account AWS organizations with SSO, Vault secrets management, and Cloudflare Zero Trust policies. 
+I've managed mission-critical election systems infrastructure for LA County, designed air-gapped ICS environments, and built multi-account AWS organizations with SSO, Vault secrets management, and Cloudflare Zero Trust policies.
 
 My work includes:
 - EKS platform operations and Envoy service mesh

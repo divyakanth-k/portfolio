@@ -2,13 +2,13 @@
    Contact Form — Validation & Submission
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contactForm');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
   if (!form) return;
 
-  const nameInput = document.getElementById('formName');
-  const emailInput = document.getElementById('formEmail');
-  const messageInput = document.getElementById('formMessage');
+  const nameInput = document.getElementById("formName");
+  const emailInput = document.getElementById("formEmail");
+  const messageInput = document.getElementById("formMessage");
 
   // ── Validation helpers ──
   function isValidEmail(email) {
@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showError(input, message) {
     removeError(input);
-    input.style.borderColor = 'var(--accent-rose)';
-    input.style.boxShadow = '0 0 0 3px rgba(251, 113, 133, 0.1)';
+    input.style.borderColor = "var(--accent-rose)";
+    input.style.boxShadow = "0 0 0 3px rgba(251, 113, 133, 0.1)";
 
-    const errorEl = document.createElement('span');
-    errorEl.className = 'form-error';
+    const errorEl = document.createElement("span");
+    errorEl.className = "form-error";
     errorEl.textContent = message;
     errorEl.style.cssText = `
       display: block;
@@ -38,23 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Trigger animation
     requestAnimationFrame(() => {
-      errorEl.style.opacity = '1';
-      errorEl.style.transform = 'translateY(0)';
+      errorEl.style.opacity = "1";
+      errorEl.style.transform = "translateY(0)";
     });
   }
 
   function removeError(input) {
-    input.style.borderColor = '';
-    input.style.boxShadow = '';
-    const existing = input.parentElement.querySelector('.form-error');
+    input.style.borderColor = "";
+    input.style.boxShadow = "";
+    const existing = input.parentElement.querySelector(".form-error");
     if (existing) existing.remove();
   }
 
   // ── Live validation on blur ──
-  [nameInput, emailInput, messageInput].forEach(input => {
-    input.addEventListener('blur', () => validateField(input));
-    input.addEventListener('input', () => {
-      if (input.parentElement.querySelector('.form-error')) {
+  [nameInput, emailInput, messageInput].forEach((input) => {
+    input.addEventListener("blur", () => validateField(input));
+    input.addEventListener("input", () => {
+      if (input.parentElement.querySelector(".form-error")) {
         validateField(input);
       }
     });
@@ -64,23 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
     removeError(input);
 
     if (input === nameInput && !input.value.trim()) {
-      showError(input, '> name is required');
+      showError(input, "> name is required");
       return false;
     }
 
     if (input === emailInput) {
       if (!input.value.trim()) {
-        showError(input, '> email is required');
+        showError(input, "> email is required");
         return false;
       }
       if (!isValidEmail(input.value.trim())) {
-        showError(input, '> invalid email format');
+        showError(input, "> invalid email format");
         return false;
       }
     }
 
     if (input === messageInput && !input.value.trim()) {
-      showError(input, '> message is required');
+      showError(input, "> message is required");
       return false;
     }
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Form Submit ──
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const isNameValid = validateField(nameInput);
@@ -101,37 +101,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitBtn.innerHTML = '<i class="ph ph-circle-notch ph-spin"></i> Sending...';
     submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.7';
+    submitBtn.style.opacity = "0.7";
 
     try {
-      const res = await fetch('https://formspree.io/f/xeevkggo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      const res = await fetch("https://formspree.io/f/xeevkggo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           name: nameInput.value.trim(),
           email: emailInput.value.trim(),
-          message: messageInput.value.trim()
-        })
+          message: messageInput.value.trim(),
+        }),
       });
 
       if (res.ok) {
         submitBtn.innerHTML = '<i class="ph ph-check-circle"></i> Message Sent!';
-        submitBtn.style.background = 'linear-gradient(135deg, var(--accent-emerald), #10b981)';
-        submitBtn.style.opacity = '1';
+        submitBtn.style.background = "linear-gradient(135deg, var(--accent-emerald), #10b981)";
+        submitBtn.style.opacity = "1";
         form.reset();
         setTimeout(() => {
           submitBtn.innerHTML = originalHTML;
           submitBtn.disabled = false;
-          submitBtn.style.background = '';
+          submitBtn.style.background = "";
         }, 3000);
       } else {
-        throw new Error('Server error');
+        throw new Error("Server error");
       }
     } catch {
       submitBtn.innerHTML = '<i class="ph ph-warning"></i> Failed — Try Again';
-      submitBtn.style.opacity = '1';
+      submitBtn.style.opacity = "1";
       submitBtn.disabled = false;
-      setTimeout(() => { submitBtn.innerHTML = originalHTML; }, 3000);
+      setTimeout(() => {
+        submitBtn.innerHTML = originalHTML;
+      }, 3000);
     }
   });
 });

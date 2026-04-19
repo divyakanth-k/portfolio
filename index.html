@@ -1,1066 +1,1083 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divyakanth Koppolu — DevOps & Security Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Divyakanth Koppolu — Enterprise Infrastructure Engineer specializing in server administration, secure deployments, and cloud architecture."
+    />
+    <meta name="author" content="Divyakanth Koppolu" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Divyakanth Koppolu — DevOps & Security Engineer</title>
-  <meta name="description"
-    content="Portfolio of Divyakanth Koppolu — Enterprise Infrastructure Engineer specializing in server administration, secure deployments, and cloud architecture.">
-  <meta name="author" content="Divyakanth Koppolu">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Divyakanth Koppolu — DevOps & Security Engineer" />
+    <meta
+      property="og:description"
+      content="Enterprise Infrastructure Engineer specializing in server administration, secure deployments, and cloud architecture."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://divyakanth-k.github.io/portfolio/" />
+    <meta property="og:image" content="https://divyakanth-k.github.io/portfolio/favicon.svg" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Divyakanth Koppolu — DevOps & Security Engineer">
-  <meta property="og:description"
-    content="Enterprise Infrastructure Engineer specializing in server administration, secure deployments, and cloud architecture.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://divyakanth-k.github.io/portfolio/">
-  <meta property="og:image" content="https://divyakanth-k.github.io/portfolio/favicon.svg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
 
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/features.css" />
+  </head>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/features.css">
-</head>
+  <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
-<body>
-
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        TERMINAL BOOT SEQUENCE
        ═══════════════════════════════════ -->
-  <div id="boot-sequence" class="boot-sequence">
-    <div id="boot-text" class="boot-text"></div>
-  </div>
+    <div id="boot-sequence" class="boot-sequence">
+      <div id="boot-text" class="boot-text"></div>
+    </div>
 
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        NAVIGATION
        ═══════════════════════════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <span class="nav-logo-prefix">&gt;_</span> DK
-      </a>
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#stack" class="nav-link">Stack</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="blog.html" class="nav-link">Blog</a>
+        <div class="nav-links" id="navLinks">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#stack" class="nav-link">Stack</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-3)">
+          <button id="cmd-hint" class="cmd-hint" aria-label="Open command palette">
+            <i class="ph ph-terminal"></i> <kbd>⌘K</kbd>
+          </button>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="ph ph-sun"></i>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
+    </nav>
 
-      <div style="display:flex;align-items:center;gap:var(--space-3);">
-        <button id="cmd-hint" class="cmd-hint" aria-label="Open command palette">
-          <i class="ph ph-terminal"></i> <kbd>⌘K</kbd>
-        </button>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <i class="ph ph-sun"></i>
-        </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        HERO SECTION
        ═══════════════════════════════════ -->
-  <section class="hero section" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <canvas id="particles-canvas"></canvas>
+    <section class="hero section" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <canvas id="particles-canvas"></canvas>
 
-    <!-- Floating DevOps commands (background) -->
-    <div class="floating-commands">
-      <span class="floating-cmd">$ kubectl get pods --all-namespaces</span>
-      <span class="floating-cmd">$ terraform plan -out=tfplan</span>
-      <span class="floating-cmd">$ docker build -t app:latest .</span>
-      <span class="floating-cmd">$ ansible-playbook deploy.yml</span>
-      <span class="floating-cmd">$ helm upgrade --install monitoring prometheus</span>
-      <span class="floating-cmd">$ aws eks update-kubeconfig --name prod</span>
-      <span class="floating-cmd">$ vault secrets enable -path=kv kv-v2</span>
-      <span class="floating-cmd">$ openscap xccdf eval --profile stig</span>
-      <span class="floating-cmd">$ terragrunt run-all apply</span>
-      <span class="floating-cmd">$ kubectl rollout status deployment/api</span>
-    </div>
-
-    <!-- Floating decorations -->
-    <div class="hero-decoration hero-decoration--1"></div>
-    <div class="hero-decoration hero-decoration--2"></div>
-    <div class="hero-decoration hero-decoration--3"></div>
-
-    <div class="hero-content">
-      <p class="hero-greeting">&gt; hello, I'm</p>
-      <h1 class="hero-name decrypt-text" data-text="Divyakanth Koppolu">
-        <i class="ph ph-lock-key hero-lock"></i>
-        <span class="gradient-text">Divyakanth Koppolu</span>
-      </h1>
-      <div class="hero-title">
-        <span id="typedText"></span><span class="hero-cursor"></span>
+      <!-- Floating DevOps commands (background) -->
+      <div class="floating-commands">
+        <span class="floating-cmd">$ kubectl get pods --all-namespaces</span>
+        <span class="floating-cmd">$ terraform plan -out=tfplan</span>
+        <span class="floating-cmd">$ docker build -t app:latest .</span>
+        <span class="floating-cmd">$ ansible-playbook deploy.yml</span>
+        <span class="floating-cmd">$ helm upgrade --install monitoring prometheus</span>
+        <span class="floating-cmd">$ aws eks update-kubeconfig --name prod</span>
+        <span class="floating-cmd">$ vault secrets enable -path=kv kv-v2</span>
+        <span class="floating-cmd">$ openscap xccdf eval --profile stig</span>
+        <span class="floating-cmd">$ terragrunt run-all apply</span>
+        <span class="floating-cmd">$ kubectl rollout status deployment/api</span>
       </div>
-      <p class="hero-tagline">
-        9+ years designing secure cloud infrastructures, automating deployments,
-        and driving best practices in security and operations — from air-gapped
-        election systems to multi-cloud enterprise environments.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">
-          <i class="ph ph-folder-open"></i> View Projects
-        </a>
-        <a href="#contact" class="btn btn-outline">
-          <i class="ph ph-paper-plane-tilt"></i> Contact Me
-        </a>
+
+      <!-- Floating decorations -->
+      <div class="hero-decoration hero-decoration--1"></div>
+      <div class="hero-decoration hero-decoration--2"></div>
+      <div class="hero-decoration hero-decoration--3"></div>
+
+      <div class="hero-content">
+        <p class="hero-greeting">&gt; hello, I'm</p>
+        <h1 class="hero-name decrypt-text" data-text="Divyakanth Koppolu">
+          <i class="ph ph-lock-key hero-lock"></i>
+          <span class="gradient-text">Divyakanth Koppolu</span>
+        </h1>
+        <div class="hero-title"><span id="typedText"></span><span class="hero-cursor"></span></div>
+        <p class="hero-tagline">
+          9+ years designing secure cloud infrastructures, automating deployments, and driving best practices in
+          security and operations — from air-gapped election systems to multi-cloud enterprise environments.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary"> <i class="ph ph-folder-open"></i> View Projects </a>
+          <a href="#contact" class="btn btn-outline"> <i class="ph ph-paper-plane-tilt"></i> Contact Me </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        ABOUT SECTION
        ═══════════════════════════════════ -->
-  <section class="section about-section" id="about">
-    <!-- Radar Animation Background -->
-    <div class="radar-bg"></div>
-    <div class="radar-ring radar-ring-1"></div>
-    <div class="radar-ring radar-ring-2"></div>
+    <section class="section about-section" id="about">
+      <!-- Radar Animation Background -->
+      <div class="radar-bg"></div>
+      <div class="radar-ring radar-ring-1"></div>
+      <div class="radar-ring radar-ring-2"></div>
 
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-label">// About</span>
-        <h2 class="section-title decrypt-text" data-text="Who I Am"><span class="mono-prefix">## </span>Who I Am</h2>
-        <p class="section-subtitle">DevOps & Security Engineer specializing in Linux administration, SCM, and on-prem
-          security.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-text animate-on-scroll delay-1">
-          <p>
-            With over 9 years in the IT industry, I specialize in cloud-native
-            infrastructure, platform engineering, and security operations.
-            My expertise spans designing Terraform module ecosystems at scale
-            (247+ modules), operating multi-cluster Kubernetes platforms,
-            and building end-to-end observability and incident management pipelines.
-          </p>
-          <p>
-            I've managed mission-critical election systems infrastructure for
-            LA County, designed air-gapped ICS environments, and built
-            multi-account AWS organizations with SSO, Vault secrets management,
-            and Cloudflare Zero Trust policies. My work includes EKS platform
-            operations, Envoy service mesh, CloudFront CDN pipelines, and
-            Databricks data platform provisioning.
-          </p>
-          <p>
-            I drive infrastructure-as-code best practices with Terragrunt,
-            SOPS-encrypted secrets, and Terraform Cloud remote execution —
-            paired with Ansible/Packer AMI pipelines, Buildkite/GitHub Actions
-            CI/CD, and internal platform tooling for declarative service management.
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// About</span>
+          <h2 class="section-title decrypt-text" data-text="Who I Am"><span class="mono-prefix">## </span>Who I Am</h2>
+          <p class="section-subtitle">
+            DevOps & Security Engineer specializing in Linux administration, SCM, and on-prem security.
           </p>
         </div>
 
-        <div class="about-stats animate-on-scroll delay-2">
-          <div class="stat-card glass-panel">
-            <div class="stat-number" data-target="9">0</div>
-            <div class="stat-label">Years Experience</div>
+        <div class="about-grid">
+          <div class="about-text animate-on-scroll delay-1">
+            <p>
+              With over 9 years in the IT industry, I specialize in cloud-native infrastructure, platform engineering,
+              and security operations. My expertise spans designing Terraform module ecosystems at scale (247+ modules),
+              operating multi-cluster Kubernetes platforms, and building end-to-end observability and incident
+              management pipelines.
+            </p>
+            <p>
+              I've managed mission-critical election systems infrastructure for LA County, designed air-gapped ICS
+              environments, and built multi-account AWS organizations with SSO, Vault secrets management, and Cloudflare
+              Zero Trust policies. My work includes EKS platform operations, Envoy service mesh, CloudFront CDN
+              pipelines, and Databricks data platform provisioning.
+            </p>
+            <p>
+              I drive infrastructure-as-code best practices with Terragrunt, SOPS-encrypted secrets, and Terraform Cloud
+              remote execution — paired with Ansible/Packer AMI pipelines, Buildkite/GitHub Actions CI/CD, and internal
+              platform tooling for declarative service management.
+            </p>
           </div>
-          <div class="stat-card glass-panel">
-            <div class="stat-number" data-target="247">0</div>
-            <div class="stat-label">Terraform Modules</div>
-          </div>
-          <div class="stat-card glass-panel">
-            <div class="stat-number" data-target="15">0</div>
-            <div class="stat-label">Environments</div>
-          </div>
-          <div class="stat-card glass-panel">
-            <div class="stat-number" data-target="23">0</div>
-            <div class="stat-label">EKS Sub-Modules</div>
+
+          <div class="about-stats animate-on-scroll delay-2">
+            <div class="stat-card glass-panel">
+              <div class="stat-number" data-target="9">0</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-number" data-target="247">0</div>
+              <div class="stat-label">Terraform Modules</div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Environments</div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-number" data-target="23">0</div>
+              <div class="stat-label">EKS Sub-Modules</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        TECH STACK SECTION
        ═══════════════════════════════════ -->
-  <section class="section" id="stack" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-label">// Tech Stack</span>
-        <h2 class="section-title"><span class="mono-prefix">## </span>Technologies</h2>
-        <p class="section-subtitle">The tools and platforms I use to build and secure infrastructure.</p>
+    <section class="section" id="stack" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// Tech Stack</span>
+          <h2 class="section-title"><span class="mono-prefix">## </span>Technologies</h2>
+          <p class="section-subtitle">The tools and platforms I use to build and secure infrastructure.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="stack-categories animate-on-scroll delay-1">
+          <button class="stack-filter-btn active" data-filter="all">All</button>
+          <button class="stack-filter-btn" data-filter="os">OS / Virtualization</button>
+          <button class="stack-filter-btn" data-filter="cloud">Cloud</button>
+          <button class="stack-filter-btn" data-filter="containers">Containers</button>
+          <button class="stack-filter-btn" data-filter="iac">IaC / CI-CD</button>
+          <button class="stack-filter-btn" data-filter="monitoring">Monitoring</button>
+          <button class="stack-filter-btn" data-filter="security">Security</button>
+          <button class="stack-filter-btn" data-filter="data">Data / Scripting</button>
+        </div>
+
+        <!-- Tech Grid -->
+        <div class="stack-grid" id="stackGrid">
+          <!-- OS / Virtualization -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="os">
+            <div class="tech-tile-icon"><i class="ph ph-linux-logo"></i></div>
+            <span class="tech-tile-name">RHEL / CentOS</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 95%"></div>
+            </div>
+            <span class="tech-tile-category">OS</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="os">
+            <div class="tech-tile-icon"><i class="ph ph-windows-logo"></i></div>
+            <span class="tech-tile-name">Windows Server</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">OS</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="os">
+            <div class="tech-tile-icon"><i class="ph ph-desktop-tower"></i></div>
+            <span class="tech-tile-name">VMware vSphere</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 92%"></div>
+            </div>
+            <span class="tech-tile-category">Virtualization</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="os">
+            <div class="tech-tile-icon"><i class="ph ph-linux-logo"></i></div>
+            <span class="tech-tile-name">Solaris / SUSE</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 75%"></div>
+            </div>
+            <span class="tech-tile-category">OS</span>
+          </div>
+
+          <!-- Cloud -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="cloud">
+            <div class="tech-tile-icon"><i class="ph ph-cloud"></i></div>
+            <span class="tech-tile-name">AWS</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 90%"></div>
+            </div>
+            <span class="tech-tile-category">Cloud</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="cloud">
+            <div class="tech-tile-icon"><i class="ph ph-cloud"></i></div>
+            <span class="tech-tile-name">GCP</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Cloud</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="cloud">
+            <div class="tech-tile-icon"><i class="ph ph-hard-drives"></i></div>
+            <span class="tech-tile-name">NetApp ONTAP</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 82%"></div>
+            </div>
+            <span class="tech-tile-category">Storage</span>
+          </div>
+
+          <!-- Containers -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="containers">
+            <div class="tech-tile-icon"><i class="ph ph-cube"></i></div>
+            <span class="tech-tile-name">Docker</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 92%"></div>
+            </div>
+            <span class="tech-tile-category">Containers</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="containers">
+            <div class="tech-tile-icon"><i class="ph ph-hexagon"></i></div>
+            <span class="tech-tile-name">Kubernetes</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">Containers</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="containers">
+            <div class="tech-tile-icon"><i class="ph ph-circuitry"></i></div>
+            <span class="tech-tile-name">OpenShift</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Containers</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="containers">
+            <div class="tech-tile-icon"><i class="ph ph-hexagon"></i></div>
+            <span class="tech-tile-name">EKS</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 92%"></div>
+            </div>
+            <span class="tech-tile-category">AWS K8s</span>
+          </div>
+
+          <!-- IaC / CI-CD -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-tree-structure"></i></div>
+            <span class="tech-tile-name">Terraform</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 90%"></div>
+            </div>
+            <span class="tech-tile-category">IaC</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-gear-six"></i></div>
+            <span class="tech-tile-name">Ansible</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 92%"></div>
+            </div>
+            <span class="tech-tile-category">IaC</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-git-branch"></i></div>
+            <span class="tech-tile-name">Jenkins CI/CD</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">CI/CD</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-package"></i></div>
+            <span class="tech-tile-name">JFrog Artifactory</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 82%"></div>
+            </div>
+            <span class="tech-tile-category">CI/CD</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-stack"></i></div>
+            <span class="tech-tile-name">Terragrunt / SOPS</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 90%"></div>
+            </div>
+            <span class="tech-tile-category">IaC</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-anchor"></i></div>
+            <span class="tech-tile-name">Helm</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">K8s Packaging</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-7" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-hard-drive"></i></div>
+            <span class="tech-tile-name">Packer</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">AMI Builds</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-8" data-category="iac">
+            <div class="tech-tile-icon"><i class="ph ph-flow-arrow"></i></div>
+            <span class="tech-tile-name">Buildkite / GH Actions</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">CI/CD</span>
+          </div>
+
+          <!-- Monitoring -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="monitoring">
+            <div class="tech-tile-icon"><i class="ph ph-chart-line-up"></i></div>
+            <span class="tech-tile-name">Graylog SIEM</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">Monitoring</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="monitoring">
+            <div class="tech-tile-icon"><i class="ph ph-pulse"></i></div>
+            <span class="tech-tile-name">Kibana APM</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 82%"></div>
+            </div>
+            <span class="tech-tile-category">Monitoring</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="monitoring">
+            <div class="tech-tile-icon"><i class="ph ph-binoculars"></i></div>
+            <span class="tech-tile-name">Tenable Nessus</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Scanning</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="monitoring">
+            <div class="tech-tile-icon"><i class="ph ph-chart-line-up"></i></div>
+            <span class="tech-tile-name">Prometheus / Thanos</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 90%"></div>
+            </div>
+            <span class="tech-tile-category">Metrics</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="monitoring">
+            <div class="tech-tile-icon"><i class="ph ph-squares-four"></i></div>
+            <span class="tech-tile-name">Grafana / Mimir</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">Dashboards</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="monitoring">
+            <div class="tech-tile-icon"><i class="ph ph-siren"></i></div>
+            <span class="tech-tile-name">incident.io</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Incident Mgmt</span>
+          </div>
+
+          <!-- Security -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="security">
+            <div class="tech-tile-icon"><i class="ph ph-shield-check"></i></div>
+            <span class="tech-tile-name">Carbon Black</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">Security</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="security">
+            <div class="tech-tile-icon"><i class="ph ph-scan"></i></div>
+            <span class="tech-tile-name">OpenSCAP</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Compliance</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="security">
+            <div class="tech-tile-icon"><i class="ph ph-wall"></i></div>
+            <span class="tech-tile-name">Cisco / Palo Alto</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Networking</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="security">
+            <div class="tech-tile-icon"><i class="ph ph-lock-key"></i></div>
+            <span class="tech-tile-name">ClearPass / Infoblox</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 82%"></div>
+            </div>
+            <span class="tech-tile-category">NAC</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="security">
+            <div class="tech-tile-icon"><i class="ph ph-cloud-check"></i></div>
+            <span class="tech-tile-name">Cloudflare Zero Trust</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Zero Trust</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="security">
+            <div class="tech-tile-icon"><i class="ph ph-vault"></i></div>
+            <span class="tech-tile-name">Vault / Okta / SSO</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">Identity</span>
+          </div>
+
+          <!-- Data / Scripting -->
+          <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-terminal-window"></i></div>
+            <span class="tech-tile-name">Shell / Bash</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 92%"></div>
+            </div>
+            <span class="tech-tile-category">Scripting</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-code"></i></div>
+            <span class="tech-tile-name">Python</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Scripting</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-database"></i></div>
+            <span class="tech-tile-name">MySQL / PostgreSQL</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 82%"></div>
+            </div>
+            <span class="tech-tile-category">Database</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-globe"></i></div>
+            <span class="tech-tile-name">Nginx / Kafka</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%"></div>
+            </div>
+            <span class="tech-tile-category">Web / Messaging</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-graph"></i></div>
+            <span class="tech-tile-name">Envoy / Service Mesh</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">Networking</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-rectangles"></i></div>
+            <span class="tech-tile-name">Databricks</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 82%"></div>
+            </div>
+            <span class="tech-tile-category">Data Platform</span>
+          </div>
+
+          <div class="tech-tile glass-panel animate-on-scroll delay-7" data-category="data">
+            <div class="tech-tile-icon"><i class="ph ph-cloud-arrow-down"></i></div>
+            <span class="tech-tile-name">CloudFront CDN</span>
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%"></div>
+            </div>
+            <span class="tech-tile-category">CDN</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Category Filters -->
-      <div class="stack-categories animate-on-scroll delay-1">
-        <button class="stack-filter-btn active" data-filter="all">All</button>
-        <button class="stack-filter-btn" data-filter="os">OS / Virtualization</button>
-        <button class="stack-filter-btn" data-filter="cloud">Cloud</button>
-        <button class="stack-filter-btn" data-filter="containers">Containers</button>
-        <button class="stack-filter-btn" data-filter="iac">IaC / CI-CD</button>
-        <button class="stack-filter-btn" data-filter="monitoring">Monitoring</button>
-        <button class="stack-filter-btn" data-filter="security">Security</button>
-        <button class="stack-filter-btn" data-filter="data">Data / Scripting</button>
-      </div>
-
-      <!-- Tech Grid -->
-      <div class="stack-grid" id="stackGrid">
-
-        <!-- OS / Virtualization -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="os">
-          <div class="tech-tile-icon"><i class="ph ph-linux-logo"></i></div>
-          <span class="tech-tile-name">RHEL / CentOS</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 95%"></div>
-          </div>
-          <span class="tech-tile-category">OS</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="os">
-          <div class="tech-tile-icon"><i class="ph ph-windows-logo"></i></div>
-          <span class="tech-tile-name">Windows Server</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">OS</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="os">
-          <div class="tech-tile-icon"><i class="ph ph-desktop-tower"></i></div>
-          <span class="tech-tile-name">VMware vSphere</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 92%"></div>
-          </div>
-          <span class="tech-tile-category">Virtualization</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="os">
-          <div class="tech-tile-icon"><i class="ph ph-linux-logo"></i></div>
-          <span class="tech-tile-name">Solaris / SUSE</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 75%"></div>
-          </div>
-          <span class="tech-tile-category">OS</span>
-        </div>
-
-        <!-- Cloud -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="cloud">
-          <div class="tech-tile-icon"><i class="ph ph-cloud"></i></div>
-          <span class="tech-tile-name">AWS</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 90%"></div>
-          </div>
-          <span class="tech-tile-category">Cloud</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="cloud">
-          <div class="tech-tile-icon"><i class="ph ph-cloud"></i></div>
-          <span class="tech-tile-name">GCP</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Cloud</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="cloud">
-          <div class="tech-tile-icon"><i class="ph ph-hard-drives"></i></div>
-          <span class="tech-tile-name">NetApp ONTAP</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 82%"></div>
-          </div>
-          <span class="tech-tile-category">Storage</span>
-        </div>
-
-        <!-- Containers -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="containers">
-          <div class="tech-tile-icon"><i class="ph ph-cube"></i></div>
-          <span class="tech-tile-name">Docker</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 92%"></div>
-          </div>
-          <span class="tech-tile-category">Containers</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="containers">
-          <div class="tech-tile-icon"><i class="ph ph-hexagon"></i></div>
-          <span class="tech-tile-name">Kubernetes</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">Containers</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="containers">
-          <div class="tech-tile-icon"><i class="ph ph-circuitry"></i></div>
-          <span class="tech-tile-name">OpenShift</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Containers</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="containers">
-          <div class="tech-tile-icon"><i class="ph ph-hexagon"></i></div>
-          <span class="tech-tile-name">EKS</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 92%"></div>
-          </div>
-          <span class="tech-tile-category">AWS K8s</span>
-        </div>
-
-        <!-- IaC / CI-CD -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-tree-structure"></i></div>
-          <span class="tech-tile-name">Terraform</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 90%"></div>
-          </div>
-          <span class="tech-tile-category">IaC</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-gear-six"></i></div>
-          <span class="tech-tile-name">Ansible</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 92%"></div>
-          </div>
-          <span class="tech-tile-category">IaC</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-git-branch"></i></div>
-          <span class="tech-tile-name">Jenkins CI/CD</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">CI/CD</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-package"></i></div>
-          <span class="tech-tile-name">JFrog Artifactory</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 82%"></div>
-          </div>
-          <span class="tech-tile-category">CI/CD</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-stack"></i></div>
-          <span class="tech-tile-name">Terragrunt / SOPS</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 90%"></div>
-          </div>
-          <span class="tech-tile-category">IaC</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-anchor"></i></div>
-          <span class="tech-tile-name">Helm</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">K8s Packaging</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-7" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-hard-drive"></i></div>
-          <span class="tech-tile-name">Packer</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">AMI Builds</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-8" data-category="iac">
-          <div class="tech-tile-icon"><i class="ph ph-flow-arrow"></i></div>
-          <span class="tech-tile-name">Buildkite / GH Actions</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">CI/CD</span>
-        </div>
-
-        <!-- Monitoring -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="monitoring">
-          <div class="tech-tile-icon"><i class="ph ph-chart-line-up"></i></div>
-          <span class="tech-tile-name">Graylog SIEM</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">Monitoring</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="monitoring">
-          <div class="tech-tile-icon"><i class="ph ph-pulse"></i></div>
-          <span class="tech-tile-name">Kibana APM</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 82%"></div>
-          </div>
-          <span class="tech-tile-category">Monitoring</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="monitoring">
-          <div class="tech-tile-icon"><i class="ph ph-binoculars"></i></div>
-          <span class="tech-tile-name">Tenable Nessus</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Scanning</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="monitoring">
-          <div class="tech-tile-icon"><i class="ph ph-chart-line-up"></i></div>
-          <span class="tech-tile-name">Prometheus / Thanos</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 90%"></div>
-          </div>
-          <span class="tech-tile-category">Metrics</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="monitoring">
-          <div class="tech-tile-icon"><i class="ph ph-squares-four"></i></div>
-          <span class="tech-tile-name">Grafana / Mimir</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">Dashboards</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="monitoring">
-          <div class="tech-tile-icon"><i class="ph ph-siren"></i></div>
-          <span class="tech-tile-name">incident.io</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Incident Mgmt</span>
-        </div>
-
-        <!-- Security -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="security">
-          <div class="tech-tile-icon"><i class="ph ph-shield-check"></i></div>
-          <span class="tech-tile-name">Carbon Black</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">Security</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="security">
-          <div class="tech-tile-icon"><i class="ph ph-scan"></i></div>
-          <span class="tech-tile-name">OpenSCAP</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Compliance</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="security">
-          <div class="tech-tile-icon"><i class="ph ph-wall"></i></div>
-          <span class="tech-tile-name">Cisco / Palo Alto</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Networking</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="security">
-          <div class="tech-tile-icon"><i class="ph ph-lock-key"></i></div>
-          <span class="tech-tile-name">ClearPass / Infoblox</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 82%"></div>
-          </div>
-          <span class="tech-tile-category">NAC</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="security">
-          <div class="tech-tile-icon"><i class="ph ph-cloud-check"></i></div>
-          <span class="tech-tile-name">Cloudflare Zero Trust</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Zero Trust</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="security">
-          <div class="tech-tile-icon"><i class="ph ph-vault"></i></div>
-          <span class="tech-tile-name">Vault / Okta / SSO</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">Identity</span>
-        </div>
-
-        <!-- Data / Scripting -->
-        <div class="tech-tile glass-panel animate-on-scroll delay-1" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-terminal-window"></i></div>
-          <span class="tech-tile-name">Shell / Bash</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 92%"></div>
-          </div>
-          <span class="tech-tile-category">Scripting</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-2" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-code"></i></div>
-          <span class="tech-tile-name">Python</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Scripting</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-3" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-database"></i></div>
-          <span class="tech-tile-name">MySQL / PostgreSQL</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 82%"></div>
-          </div>
-          <span class="tech-tile-category">Database</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-4" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-globe"></i></div>
-          <span class="tech-tile-name">Nginx / Kafka</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 88%"></div>
-          </div>
-          <span class="tech-tile-category">Web / Messaging</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-5" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-graph"></i></div>
-          <span class="tech-tile-name">Envoy / Service Mesh</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">Networking</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-6" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-rectangles"></i></div>
-          <span class="tech-tile-name">Databricks</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 82%"></div>
-          </div>
-          <span class="tech-tile-category">Data Platform</span>
-        </div>
-
-        <div class="tech-tile glass-panel animate-on-scroll delay-7" data-category="data">
-          <div class="tech-tile-icon"><i class="ph ph-cloud-arrow-down"></i></div>
-          <span class="tech-tile-name">CloudFront CDN</span>
-          <div class="proficiency-bar">
-            <div class="proficiency-fill" style="width: 85%"></div>
-          </div>
-          <span class="tech-tile-category">CDN</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        EXPERIENCE SECTION
        ═══════════════════════════════════ -->
-  <section class="section" id="experience">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-label">// Experience</span>
-        <h2 class="section-title"><span class="mono-prefix">## </span>Work History</h2>
-        <p class="section-subtitle">A timeline of roles where I've built and secured critical systems.</p>
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// Experience</span>
+          <h2 class="section-title"><span class="mono-prefix">## </span>Work History</h2>
+          <p class="section-subtitle">A timeline of roles where I've built and secured critical systems.</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Job 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-panel animate-slide-left">
+              <div class="timeline-card-header">
+                <span class="timeline-role">DevOps / Security Engineer</span>
+                <span class="timeline-company">@ InfoDrive Systems Inc. — LA County - RRCC</span>
+                <span class="timeline-date">Feb 2021 — Present</span>
+              </div>
+              <ul class="timeline-description">
+                <li>
+                  Design, implement, and troubleshoot air-gapped Ballot Marking Device Management System network
+                  environments within Industrial Control Systems (ICS)
+                </li>
+                <li>
+                  Manage mission-critical election systems infrastructure ensuring high availability, integrity, and
+                  compliance
+                </li>
+                <li>
+                  Deploy Terraform scripts to provision VMs with virtual CPU, memory, IP, VLANs, and virtual disks in
+                  VMware vCenter
+                </li>
+                <li>
+                  Deployed and maintained Graylog as a centralized SIEM platform; developed custom pipelines and grok
+                  patterns for log analysis
+                </li>
+                <li>
+                  Automate OpenShift pre-installation tasks using Ansible including registration, package installation,
+                  and firewall setup
+                </li>
+                <li>
+                  Install and configure Carbon Black App Control; create OpenSCAP scripts for NIST 800-171 compliance
+                  scanning
+                </li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">Terraform</span>
+                <span class="tech-tag">VMware</span>
+                <span class="tech-tag">OpenShift</span>
+                <span class="tech-tag">Ansible</span>
+                <span class="tech-tag tech-tag--emerald">Air-Gapped</span>
+                <span class="tech-tag tech-tag--amber">NIST 800-171</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-panel animate-slide-right">
+              <div class="timeline-card-header">
+                <span class="timeline-role">Cloud DevOps Engineer</span>
+                <span class="timeline-company">@ Veridic Solutions — Smartmatic, LA</span>
+                <span class="timeline-date">May 2019 — Jan 2021</span>
+              </div>
+              <ul class="timeline-description">
+                <li>
+                  Developed Terraform templates to automate VM deployments in VMware and patch ESXi hosts using VMware
+                  Update Manager
+                </li>
+                <li>
+                  Managed AWS Cloud IaaS including EC2, VPC, ELB, Auto-scaling, Security Groups, RDS, IAM, S3,
+                  CloudFormation
+                </li>
+                <li>
+                  Built Linux OS and kernel offline by debootstrapping chroot environments and customizing per
+                  requirements
+                </li>
+                <li>
+                  Created CI/CD jobs in Jenkins for building Linux OS with shell script automation and promoting
+                  artifacts to JFrog Artifactory
+                </li>
+                <li>Configured and maintained Infoblox for DHCP, DNS, TFTP with increased network security</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Terraform</span>
+                <span class="tech-tag">Jenkins</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag tech-tag--emerald">Debootstrap</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-panel animate-slide-left">
+              <div class="timeline-card-header">
+                <span class="timeline-role">Cloud Engineer</span>
+                <span class="timeline-company">@ Veridic Solutions — Cardinal Health, OH</span>
+                <span class="timeline-date">Mar 2018 — Mar 2019</span>
+              </div>
+              <ul class="timeline-description">
+                <li>
+                  Migrated servers from on-prem to AWS and GCP using Velostrata; managed GCP Compute Engine, VPC, Load
+                  Balancers
+                </li>
+                <li>
+                  Built virtual data centers in AWS with VPC, Public/Private Subnets, Security Groups, Route Tables, and
+                  ELB
+                </li>
+                <li>Automated infrastructure using GCP Deployment Manager templates and AWS CloudFormation</li>
+                <li>
+                  Used Bash and Python to supplement Ansible and Terraform automation including EBS encryption and
+                  Lambda scheduling
+                </li>
+                <li>Configured Palo Alto firewalls and Sophos UTM for NAT, whitelisting, and web policy management</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">GCP</span>
+                <span class="tech-tag">Ansible</span>
+                <span class="tech-tag tech-tag--amber">Palo Alto</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-panel animate-slide-right">
+              <div class="timeline-card-header">
+                <span class="timeline-role">Linux / Unix Administrator</span>
+                <span class="timeline-company">@ Kanav Infotech — Hyderabad, India</span>
+                <span class="timeline-date">May 2014 — Jul 2016</span>
+              </div>
+              <ul class="timeline-description">
+                <li>Installed, configured, and upgraded Red Hat Linux, Solaris, and CentOS operating systems</li>
+                <li>
+                  Monitored CPU utilization, memory profiles, disk usage, and network connectivity; scheduled backups
+                  and restores
+                </li>
+                <li>Configured LDAP, NFS, FTP, SAMBA, and POSTFIX servers in RHEL environments</li>
+                <li>
+                  Performed patching and live upgrades on production servers using YUM/RPM from Red Hat subscription
+                  services
+                </li>
+                <li>
+                  Automated daily tasks with Shell scripting (Bash, KSH) and managed LVM, NTP, and HTTPS configurations
+                </li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">RHEL</span>
+                <span class="tech-tag">Solaris</span>
+                <span class="tech-tag">Shell</span>
+                <span class="tech-tag tech-tag--emerald">VMware</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="timeline">
-        <!-- Job 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card glass-panel animate-slide-left">
-            <div class="timeline-card-header">
-              <span class="timeline-role">DevOps / Security Engineer</span>
-              <span class="timeline-company">@ InfoDrive Systems Inc. — LA County - RRCC</span>
-              <span class="timeline-date">Feb 2021 — Present</span>
-            </div>
-            <ul class="timeline-description">
-              <li>Design, implement, and troubleshoot air-gapped Ballot Marking Device Management System network
-                environments within Industrial Control Systems (ICS)</li>
-              <li>Manage mission-critical election systems infrastructure ensuring high availability, integrity, and
-                compliance</li>
-              <li>Deploy Terraform scripts to provision VMs with virtual CPU, memory, IP, VLANs, and virtual disks in
-                VMware vCenter</li>
-              <li>Deployed and maintained Graylog as a centralized SIEM platform; developed custom pipelines and grok
-                patterns for log analysis</li>
-              <li>Automate OpenShift pre-installation tasks using Ansible including registration, package installation,
-                and firewall setup</li>
-              <li>Install and configure Carbon Black App Control; create OpenSCAP scripts for NIST 800-171 compliance
-                scanning</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">VMware</span>
-              <span class="tech-tag">OpenShift</span>
-              <span class="tech-tag">Ansible</span>
-              <span class="tech-tag tech-tag--emerald">Air-Gapped</span>
-              <span class="tech-tag tech-tag--amber">NIST 800-171</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job 2 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card glass-panel animate-slide-right">
-            <div class="timeline-card-header">
-              <span class="timeline-role">Cloud DevOps Engineer</span>
-              <span class="timeline-company">@ Veridic Solutions — Smartmatic, LA</span>
-              <span class="timeline-date">May 2019 — Jan 2021</span>
-            </div>
-            <ul class="timeline-description">
-              <li>Developed Terraform templates to automate VM deployments in VMware and patch ESXi hosts using VMware
-                Update Manager</li>
-              <li>Managed AWS Cloud IaaS including EC2, VPC, ELB, Auto-scaling, Security Groups, RDS, IAM, S3,
-                CloudFormation</li>
-              <li>Built Linux OS and kernel offline by debootstrapping chroot environments and customizing per
-                requirements</li>
-              <li>Created CI/CD jobs in Jenkins for building Linux OS with shell script automation and promoting
-                artifacts to JFrog Artifactory</li>
-              <li>Configured and maintained Infoblox for DHCP, DNS, TFTP with increased network security</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tech-tag">AWS</span>
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">Jenkins</span>
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag tech-tag--emerald">Debootstrap</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job 3 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card glass-panel animate-slide-left">
-            <div class="timeline-card-header">
-              <span class="timeline-role">Cloud Engineer</span>
-              <span class="timeline-company">@ Veridic Solutions — Cardinal Health, OH</span>
-              <span class="timeline-date">Mar 2018 — Mar 2019</span>
-            </div>
-            <ul class="timeline-description">
-              <li>Migrated servers from on-prem to AWS and GCP using Velostrata; managed GCP Compute Engine, VPC, Load
-                Balancers</li>
-              <li>Built virtual data centers in AWS with VPC, Public/Private Subnets, Security Groups, Route Tables, and
-                ELB</li>
-              <li>Automated infrastructure using GCP Deployment Manager templates and AWS CloudFormation</li>
-              <li>Used Bash and Python to supplement Ansible and Terraform automation including EBS encryption and
-                Lambda scheduling</li>
-              <li>Configured Palo Alto firewalls and Sophos UTM for NAT, whitelisting, and web policy management</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tech-tag">AWS</span>
-              <span class="tech-tag">GCP</span>
-              <span class="tech-tag">Ansible</span>
-              <span class="tech-tag tech-tag--amber">Palo Alto</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job 4 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card glass-panel animate-slide-right">
-            <div class="timeline-card-header">
-              <span class="timeline-role">Linux / Unix Administrator</span>
-              <span class="timeline-company">@ Kanav Infotech — Hyderabad, India</span>
-              <span class="timeline-date">May 2014 — Jul 2016</span>
-            </div>
-            <ul class="timeline-description">
-              <li>Installed, configured, and upgraded Red Hat Linux, Solaris, and CentOS operating systems</li>
-              <li>Monitored CPU utilization, memory profiles, disk usage, and network connectivity; scheduled backups
-                and restores</li>
-              <li>Configured LDAP, NFS, FTP, SAMBA, and POSTFIX servers in RHEL environments</li>
-              <li>Performed patching and live upgrades on production servers using YUM/RPM from Red Hat subscription
-                services</li>
-              <li>Automated daily tasks with Shell scripting (Bash, KSH) and managed LVM, NTP, and HTTPS configurations
-              </li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tech-tag">RHEL</span>
-              <span class="tech-tag">Solaris</span>
-              <span class="tech-tag">Shell</span>
-              <span class="tech-tag tech-tag--emerald">VMware</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        PROJECTS SECTION
        ═══════════════════════════════════ -->
-  <section class="section" id="projects" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-label">// Projects</span>
-        <h2 class="section-title"><span class="mono-prefix">## </span>Key Projects</h2>
-        <p class="section-subtitle">Impactful infrastructure and security projects from my professional work.</p>
+    <section class="section" id="projects" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// Projects</span>
+          <h2 class="section-title"><span class="mono-prefix">## </span>Key Projects</h2>
+          <p class="section-subtitle">Impactful infrastructure and security projects from my professional work.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card glass-panel project-card--featured animate-on-scroll delay-1">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-tree-structure"></i></span>
+            </div>
+            <h3 class="project-title">Terraform Module Ecosystem at Scale</h3>
+            <p class="project-description">
+              Designed and maintained 247+ Terraform modules and 370+ sub-modules covering AWS compute (EKS, EC2,
+              Elastic Beanstalk), networking (VPC, Transit Gateway, PrivateLink, Route53), storage (S3, DynamoDB, RDS,
+              MSK, ElastiCache, Redshift, OpenSearch), and security (KMS, ACM, Secrets Manager, IAM/SSO). Deployed
+              across 15+ environments via Terragrunt with SOPS-encrypted secrets and Terraform Cloud remote execution.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Terragrunt</span>
+              <span class="tech-tag tech-tag--emerald">247+ Modules</span>
+              <span class="tech-tag tech-tag--amber">15+ Environments</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card glass-panel animate-on-scroll delay-2">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-hexagon"></i></span>
+            </div>
+            <h3 class="project-title">Multi-Cluster EKS Platform</h3>
+            <p class="project-description">
+              Operated multi-cluster EKS platform with 23 sub-modules covering control plane, node groups, VPA, KEDA,
+              Calico, cert-manager, external-dns, and fleet management via Buildkite and GitHub Actions CI/CD. Managed
+              K8s observability with Prometheus, Thanos, Grafana, Mimir, Alloy, and Jaeger deployed via Helm and
+              kubernetes_manifest Terraform resources.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">EKS</span>
+              <span class="tech-tag">Helm</span>
+              <span class="tech-tag tech-tag--emerald">Prometheus</span>
+              <span class="tech-tag tech-tag--amber">23 Sub-Modules</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card glass-panel animate-on-scroll delay-3">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-siren"></i></span>
+            </div>
+            <h3 class="project-title">End-to-End Alerting Pipeline</h3>
+            <p class="project-description">
+              Built alerting pipeline integrating AWS SNS, Lambda (Python), Slack webhooks, and incident.io HTTP alert
+              sources — routing CloudWatch alarms to on-call teams via escalation policies with business-hours-aware
+              paging and structured alert deduplication. Managed incident.io alert sources, routes, and Slack channel
+              routing as Terraform code.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">incident.io</span>
+              <span class="tech-tag">Lambda</span>
+              <span class="tech-tag tech-tag--emerald">SNS</span>
+              <span class="tech-tag tech-tag--amber">Slack</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card glass-panel animate-on-scroll delay-4">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-cloud-arrow-down"></i></span>
+            </div>
+            <h3 class="project-title">CloudFront Zero-Downtime CDN</h3>
+            <p class="project-description">
+              Designed CloudFront continuous deployment pipelines with staging distributions, weight-based and
+              header-based traffic splitting, CORS response headers policies, and JA3/JA4 fingerprint-based origin
+              request policies for zero-downtime releases. Managed Envoy service mesh with hot restart procedures and
+              Ansible-based configuration.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">CloudFront</span>
+              <span class="tech-tag">Envoy</span>
+              <span class="tech-tag tech-tag--emerald">Zero-Downtime</span>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card glass-panel animate-on-scroll delay-5">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-shield-checkered"></i></span>
+            </div>
+            <h3 class="project-title">Air-Gapped Election Infrastructure</h3>
+            <p class="project-description">
+              Designed and managed air-gapped Ballot Marking Device Management System networks within Industrial Control
+              Systems for LA County elections. Ensured high availability, integrity, and strict compliance for
+              mission-critical election operations.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">VMware</span>
+              <span class="tech-tag">ICS</span>
+              <span class="tech-tag tech-tag--emerald">Air-Gapped</span>
+              <span class="tech-tag tech-tag--amber">Elections</span>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card glass-panel animate-on-scroll delay-6">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-lock-key"></i></span>
+            </div>
+            <h3 class="project-title">Multi-Account Security & Zero Trust</h3>
+            <p class="project-description">
+              Managed AWS SSO roles (50+ variants), Okta webhook integrations, Cloudflare Zero Trust policies, Teleport
+              access, and Vault secrets management across multi-account AWS organization. Evaluated cross-subdomain
+              cookie exposure risks and recommended SameSite, HttpOnly, and __Host- cookie prefix mitigations.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">AWS SSO</span>
+              <span class="tech-tag">Cloudflare</span>
+              <span class="tech-tag tech-tag--emerald">Vault</span>
+              <span class="tech-tag tech-tag--amber">Zero Trust</span>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="project-card glass-panel animate-on-scroll delay-7">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-hard-drive"></i></span>
+            </div>
+            <h3 class="project-title">Platform Tooling & AMI Pipelines</h3>
+            <p class="project-description">
+              Maintained Ansible roles and Packer pipelines for AMI builds, server configuration, and macOS/Linux
+              bastion provisioning across production environments. Built internal platform tooling managing service
+              definitions, gateway configs, Airflow DAGs, Flink jobs, and Ray Serve deployments as declarative YAML with
+              Python validation.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">Packer</span>
+              <span class="tech-tag">Ansible</span>
+              <span class="tech-tag tech-tag--emerald">AMI Builds</span>
+            </div>
+          </div>
+
+          <!-- Project 8 -->
+          <div class="project-card glass-panel animate-on-scroll delay-8">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-rectangles"></i></span>
+            </div>
+            <h3 class="project-title">Databricks Data Platform</h3>
+            <p class="project-description">
+              Provisioned and managed Databricks workspace creation, Unity Catalog, delta sharing, service principals,
+              policies, and secrets across 11 Terraform sub-modules integrated with AWS account infrastructure. Enabled
+              self-service data engineering workflows.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">Databricks</span>
+              <span class="tech-tag">Unity Catalog</span>
+              <span class="tech-tag tech-tag--emerald">11 Sub-Modules</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="projects-grid">
-
-        <!-- Project 1 -->
-        <div class="project-card glass-panel project-card--featured animate-on-scroll delay-1">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-tree-structure"></i></span>
-          </div>
-          <h3 class="project-title">Terraform Module Ecosystem at Scale</h3>
-          <p class="project-description">
-            Designed and maintained 247+ Terraform modules and 370+ sub-modules covering AWS compute
-            (EKS, EC2, Elastic Beanstalk), networking (VPC, Transit Gateway, PrivateLink, Route53),
-            storage (S3, DynamoDB, RDS, MSK, ElastiCache, Redshift, OpenSearch), and security
-            (KMS, ACM, Secrets Manager, IAM/SSO). Deployed across 15+ environments via Terragrunt
-            with SOPS-encrypted secrets and Terraform Cloud remote execution.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">Terraform</span>
-            <span class="tech-tag">Terragrunt</span>
-            <span class="tech-tag tech-tag--emerald">247+ Modules</span>
-            <span class="tech-tag tech-tag--amber">15+ Environments</span>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card glass-panel animate-on-scroll delay-2">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-hexagon"></i></span>
-          </div>
-          <h3 class="project-title">Multi-Cluster EKS Platform</h3>
-          <p class="project-description">
-            Operated multi-cluster EKS platform with 23 sub-modules covering control plane, node groups,
-            VPA, KEDA, Calico, cert-manager, external-dns, and fleet management via Buildkite and
-            GitHub Actions CI/CD. Managed K8s observability with Prometheus, Thanos, Grafana, Mimir,
-            Alloy, and Jaeger deployed via Helm and kubernetes_manifest Terraform resources.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">EKS</span>
-            <span class="tech-tag">Helm</span>
-            <span class="tech-tag tech-tag--emerald">Prometheus</span>
-            <span class="tech-tag tech-tag--amber">23 Sub-Modules</span>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card glass-panel animate-on-scroll delay-3">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-siren"></i></span>
-          </div>
-          <h3 class="project-title">End-to-End Alerting Pipeline</h3>
-          <p class="project-description">
-            Built alerting pipeline integrating AWS SNS, Lambda (Python), Slack webhooks, and
-            incident.io HTTP alert sources — routing CloudWatch alarms to on-call teams via
-            escalation policies with business-hours-aware paging and structured alert deduplication.
-            Managed incident.io alert sources, routes, and Slack channel routing as Terraform code.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">incident.io</span>
-            <span class="tech-tag">Lambda</span>
-            <span class="tech-tag tech-tag--emerald">SNS</span>
-            <span class="tech-tag tech-tag--amber">Slack</span>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card glass-panel animate-on-scroll delay-4">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-cloud-arrow-down"></i></span>
-          </div>
-          <h3 class="project-title">CloudFront Zero-Downtime CDN</h3>
-          <p class="project-description">
-            Designed CloudFront continuous deployment pipelines with staging distributions,
-            weight-based and header-based traffic splitting, CORS response headers policies,
-            and JA3/JA4 fingerprint-based origin request policies for zero-downtime releases.
-            Managed Envoy service mesh with hot restart procedures and Ansible-based configuration.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">CloudFront</span>
-            <span class="tech-tag">Envoy</span>
-            <span class="tech-tag tech-tag--emerald">Zero-Downtime</span>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project-card glass-panel animate-on-scroll delay-5">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-shield-checkered"></i></span>
-          </div>
-          <h3 class="project-title">Air-Gapped Election Infrastructure</h3>
-          <p class="project-description">
-            Designed and managed air-gapped Ballot Marking Device Management System networks within
-            Industrial Control Systems for LA County elections. Ensured high availability, integrity,
-            and strict compliance for mission-critical election operations.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">VMware</span>
-            <span class="tech-tag">ICS</span>
-            <span class="tech-tag tech-tag--emerald">Air-Gapped</span>
-            <span class="tech-tag tech-tag--amber">Elections</span>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project-card glass-panel animate-on-scroll delay-6">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-lock-key"></i></span>
-          </div>
-          <h3 class="project-title">Multi-Account Security & Zero Trust</h3>
-          <p class="project-description">
-            Managed AWS SSO roles (50+ variants), Okta webhook integrations, Cloudflare Zero Trust
-            policies, Teleport access, and Vault secrets management across multi-account AWS
-            organization. Evaluated cross-subdomain cookie exposure risks and recommended SameSite,
-            HttpOnly, and __Host- cookie prefix mitigations.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">AWS SSO</span>
-            <span class="tech-tag">Cloudflare</span>
-            <span class="tech-tag tech-tag--emerald">Vault</span>
-            <span class="tech-tag tech-tag--amber">Zero Trust</span>
-          </div>
-        </div>
-
-        <!-- Project 7 -->
-        <div class="project-card glass-panel animate-on-scroll delay-7">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-hard-drive"></i></span>
-          </div>
-          <h3 class="project-title">Platform Tooling & AMI Pipelines</h3>
-          <p class="project-description">
-            Maintained Ansible roles and Packer pipelines for AMI builds, server configuration, and
-            macOS/Linux bastion provisioning across production environments. Built internal platform
-            tooling managing service definitions, gateway configs, Airflow DAGs, Flink jobs, and
-            Ray Serve deployments as declarative YAML with Python validation.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">Packer</span>
-            <span class="tech-tag">Ansible</span>
-            <span class="tech-tag tech-tag--emerald">AMI Builds</span>
-          </div>
-        </div>
-
-        <!-- Project 8 -->
-        <div class="project-card glass-panel animate-on-scroll delay-8">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-rectangles"></i></span>
-          </div>
-          <h3 class="project-title">Databricks Data Platform</h3>
-          <p class="project-description">
-            Provisioned and managed Databricks workspace creation, Unity Catalog, delta sharing,
-            service principals, policies, and secrets across 11 Terraform sub-modules integrated
-            with AWS account infrastructure. Enabled self-service data engineering workflows.
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag">Databricks</span>
-            <span class="tech-tag">Unity Catalog</span>
-            <span class="tech-tag tech-tag--emerald">11 Sub-Modules</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        EDUCATION SECTION
        ═══════════════════════════════════ -->
-  <section class="section" id="education">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-label">// Education</span>
-        <h2 class="section-title"><span class="mono-prefix">## </span>Academic Background</h2>
-        <p class="section-subtitle">Formal education in Computer Science.</p>
-      </div>
-
-      <div class="projects-grid">
-        <div class="project-card glass-panel animate-on-scroll delay-1">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-graduation-cap"></i></span>
-          </div>
-          <h3 class="project-title">Master's in Computer Science</h3>
-          <p class="project-description">
-            Texas A&amp;M University — Kingsville
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag tech-tag--emerald">M.S. CS</span>
-          </div>
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// Education</span>
+          <h2 class="section-title"><span class="mono-prefix">## </span>Academic Background</h2>
+          <p class="section-subtitle">Formal education in Computer Science.</p>
         </div>
 
-        <div class="project-card glass-panel animate-on-scroll delay-2">
-          <div class="project-card-header">
-            <span class="project-icon"><i class="ph ph-graduation-cap"></i></span>
+        <div class="projects-grid">
+          <div class="project-card glass-panel animate-on-scroll delay-1">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-graduation-cap"></i></span>
+            </div>
+            <h3 class="project-title">Master's in Computer Science</h3>
+            <p class="project-description">Texas A&amp;M University — Kingsville</p>
+            <div class="project-tags">
+              <span class="tech-tag tech-tag--emerald">M.S. CS</span>
+            </div>
           </div>
-          <h3 class="project-title">Bachelor's in CS &amp; Technology</h3>
-          <p class="project-description">
-            JNTU — Anantapur, India
-          </p>
-          <div class="project-tags">
-            <span class="tech-tag tech-tag--amber">B.Tech CST</span>
+
+          <div class="project-card glass-panel animate-on-scroll delay-2">
+            <div class="project-card-header">
+              <span class="project-icon"><i class="ph ph-graduation-cap"></i></span>
+            </div>
+            <h3 class="project-title">Bachelor's in CS &amp; Technology</h3>
+            <p class="project-description">JNTU — Anantapur, India</p>
+            <div class="project-tags">
+              <span class="tech-tag tech-tag--amber">B.Tech CST</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        CONTACT SECTION
        ═══════════════════════════════════ -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-label">// Contact</span>
-        <h2 class="section-title"><span class="mono-prefix">## </span>Get In Touch</h2>
-        <p class="section-subtitle">Have a project or opportunity in mind? Let's connect.</p>
-      </div>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// Contact</span>
+          <h2 class="section-title"><span class="mono-prefix">## </span>Get In Touch</h2>
+          <p class="section-subtitle">Have a project or opportunity in mind? Let's connect.</p>
+        </div>
 
-      <div class="contact-grid">
-        <div class="contact-info animate-on-scroll delay-1">
-          <div class="contact-terminal">
-            <span class="mono-prefix">&gt; </span>get_in_touch<span style="color: var(--accent-emerald)"> --now</span>
+        <div class="contact-grid">
+          <div class="contact-info animate-on-scroll delay-1">
+            <div class="contact-terminal">
+              <span class="mono-prefix">&gt; </span>get_in_touch<span style="color: var(--accent-emerald)"> --now</span>
+            </div>
+            <p class="contact-text">
+              I'm always open to discussing new opportunities, interesting projects, or ways to collaborate on
+              infrastructure and security challenges. Whether it's a full-time role, consulting engagement, or
+              open-source contribution — feel free to reach out.
+            </p>
+
+            <div class="contact-links">
+              <div class="contact-link-item">
+                <span class="contact-link-icon"><i class="ph ph-envelope-simple"></i></span>
+                <a href="mailto:divyakanthops@gmail.com">divyakanthops@gmail.com</a>
+                <button id="copy-email-btn" title="Copy email address">
+                  <i class="ph ph-copy"></i>
+                  <span class="copy-tooltip">Copy</span>
+                </button>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/divyakanth-k/"
+                class="contact-link-item"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact-link-icon"><i class="ph ph-linkedin-logo"></i></span>
+                linkedin.com/in/divyakanth-k
+              </a>
+              <a href="https://github.com/divyakanth-k" class="contact-link-item" target="_blank" rel="noopener">
+                <span class="contact-link-icon"><i class="ph ph-github-logo"></i></span>
+                github.com/divyakanth-k
+              </a>
+              <div class="contact-link-item">
+                <span class="contact-link-icon"><i class="ph ph-map-pin"></i></span>
+                Los Angeles, CA
+              </div>
+            </div>
           </div>
-          <p class="contact-text">
-            I'm always open to discussing new opportunities, interesting projects,
-            or ways to collaborate on infrastructure and security challenges. Whether
-            it's a full-time role, consulting engagement, or open-source contribution —
-            feel free to reach out.
-          </p>
 
-          <div class="contact-links">
-            <div class="contact-link-item">
-              <span class="contact-link-icon"><i class="ph ph-envelope-simple"></i></span>
-              <a href="mailto:divyakanthops@gmail.com">divyakanthops@gmail.com</a>
-              <button id="copy-email-btn" title="Copy email address">
-                <i class="ph ph-copy"></i>
-                <span class="copy-tooltip">Copy</span>
+          <div class="contact-form-wrapper glass-panel animate-on-scroll delay-2">
+            <form method="POST" id="contactForm" class="contact-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-input" id="formName" placeholder=" " required />
+                <label for="formName" class="form-label">Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" class="form-input" id="formEmail" placeholder=" " required />
+                <label for="formEmail" class="form-label">Email</label>
+              </div>
+              <div class="form-group">
+                <textarea name="message" class="form-input" id="formMessage" placeholder=" " required></textarea>
+                <label for="formMessage" class="form-label">Message</label>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center">
+                <i class="ph ph-paper-plane-tilt"></i> Send Message
               </button>
-            </div>
-            <a href="https://www.linkedin.com/in/divyakanth-k/" class="contact-link-item" target="_blank"
-              rel="noopener">
-              <span class="contact-link-icon"><i class="ph ph-linkedin-logo"></i></span>
-              linkedin.com/in/divyakanth-k
-            </a>
-            <a href="https://github.com/divyakanth-k" class="contact-link-item" target="_blank" rel="noopener">
-              <span class="contact-link-icon"><i class="ph ph-github-logo"></i></span>
-              github.com/divyakanth-k
-            </a>
-            <div class="contact-link-item">
-              <span class="contact-link-icon"><i class="ph ph-map-pin"></i></span>
-              Los Angeles, CA
-            </div>
+            </form>
           </div>
         </div>
-
-        <div class="contact-form-wrapper glass-panel animate-on-scroll delay-2">
-          <form method="POST" id="contactForm" class="contact-form">
-            <div class="form-group">
-              <input type="text" name="name" class="form-input" id="formName" placeholder=" " required>
-              <label for="formName" class="form-label">Name</label>
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" class="form-input" id="formEmail" placeholder=" " required>
-              <label for="formEmail" class="form-label">Email</label>
-            </div>
-            <div class="form-group">
-              <textarea name="message" class="form-input" id="formMessage" placeholder=" " required></textarea>
-              <label for="formMessage" class="form-label">Message</label>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-              <i class="ph ph-paper-plane-tilt"></i> Send Message
-            </button>
-          </form>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        FOOTER
        ═══════════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-socials">
-        <a href="https://github.com/divyakanth-k" class="social-link" aria-label="GitHub" target="_blank"
-          rel="noopener"><i class="ph ph-github-logo"></i></a>
-        <a href="https://www.linkedin.com/in/divyakanth-k/" class="social-link" aria-label="LinkedIn" target="_blank"
-          rel="noopener"><i class="ph ph-linkedin-logo"></i></a>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-socials">
+          <a
+            href="https://github.com/divyakanth-k"
+            class="social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-github-logo"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/divyakanth-k/"
+            class="social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
+        </div>
+        <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
       </div>
-      <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        BACK TO TOP
        ═══════════════════════════════════ -->
-  <button id="back-to-top" aria-label="Back to top">
-    <i class="ph ph-arrow-up"></i> top
-  </button>
+    <button id="back-to-top" aria-label="Back to top"><i class="ph ph-arrow-up"></i> top</button>
 
-
-  <!-- ═══════════════════════════════════
+    <!-- ═══════════════════════════════════
        COMMAND PALETTE
        ═══════════════════════════════════ -->
-  <div id="cmd-palette" class="cmd-palette" role="dialog" aria-modal="true" aria-label="Command palette">
-    <div class="cmd-backdrop"></div>
-    <div class="cmd-modal">
-      <div class="cmd-input-wrapper">
-        <i class="ph ph-terminal"></i>
-        <input type="text" id="cmd-input" placeholder="Search sections or actions..." autocomplete="off"
-          spellcheck="false">
-        <span class="cmd-esc">ESC</span>
-      </div>
-      <ul class="cmd-results" id="cmd-results"></ul>
-      <div class="cmd-footer">
-        <span><kbd>↑↓</kbd> navigate</span>
-        <span><kbd>↵</kbd> select</span>
-        <span><kbd>ESC</kbd> close</span>
+    <div id="cmd-palette" class="cmd-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="cmd-backdrop"></div>
+      <div class="cmd-modal">
+        <div class="cmd-input-wrapper">
+          <i class="ph ph-terminal"></i>
+          <input
+            type="text"
+            id="cmd-input"
+            placeholder="Search sections or actions..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <span class="cmd-esc">ESC</span>
+        </div>
+        <ul class="cmd-results" id="cmd-results"></ul>
+        <div class="cmd-footer">
+          <span><kbd>↑↓</kbd> navigate</span>
+          <span><kbd>↵</kbd> select</span>
+          <span><kbd>ESC</kbd> close</span>
+        </div>
       </div>
     </div>
-  </div>
 
-
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
-  <script src="js/form.js"></script>
-  <script src="js/features.js"></script>
-
-</body>
-
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/features.js"></script>
+  </body>
 </html>
