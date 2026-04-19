@@ -66,6 +66,26 @@ Adding a new post is very simple since the site consists of static files. Follow
 
 ---
 
+## ✅ Code Quality & Pre-Commit Hooks
+
+This project uses `pre-commit` to automatically format code (via Prettier, maintaining your clean HTML/CSS/JS) and check for leaked secrets before every commit. A GitHub Actions workflow also enforces these checks on all Pull Requests to the `main` branch.
+
+**To set up pre-commit locally:**
+1. Install pre-commit (requires Python):
+   ```bash
+   pip install pre-commit
+   ```
+2. Install the git hooks:
+   ```bash
+   pre-commit install
+   ```
+3. (Optional) Run checks manually across the whole repository:
+   ```bash
+   pre-commit run --all-files
+   ```
+
+---
+
 ## 🛠️ How to Run Locally
 
 You can preview the site easily in any browser:
