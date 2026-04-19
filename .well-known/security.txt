@@ -1,0 +1,6 @@
+Contact: mailto:security@divyakanth.com
+Contact: https://www.linkedin.com/in/divyakanth-k/
+Expires: 2027-01-01T00:00:00.000Z
+Acknowledgments: https://divyakanth-k.github.io/portfolio/
+Preferred-Languages: en
+Canonical: https://divyakanth-k.github.io/portfolio/.well-known/security.txt
