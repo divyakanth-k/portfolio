@@ -135,4 +135,56 @@
     });
   }
 
+  // ══════════════════════════════════════
+  // 6. Decryption Text Effect
+  // ══════════════════════════════════════
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+
+  function triggerDecryption() {
+    const decryptElements = document.querySelectorAll('.decrypt-text');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('decrypted')) {
+          entry.target.classList.add('decrypted');
+          decryptNode(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    decryptElements.forEach(el => observer.observe(el));
+  }
+
+  function decryptNode(element) {
+    const originalText = element.getAttribute('data-text');
+    if (!originalText) return;
+
+    const childSpan = element.querySelector('.gradient-text');
+    let targetEl = element;
+    if (childSpan) targetEl = childSpan; // decrypt the inner span if it exists
+
+    let iterations = 0;
+    const maxIterations = 15;
+
+    const interval = setInterval(() => {
+      targetEl.textContent = originalText.split('')
+        .map((char, index) => {
+          if (char === ' ') return ' ';
+          if (index < iterations) return originalText[index];
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join('');
+
+      iterations += 1 / 2;
+
+      if (iterations >= originalText.length) {
+        clearInterval(interval);
+        targetEl.textContent = originalText;
+      }
+    }, 40);
+  }
+
+  triggerDecryption();
+
 })();

@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { text: "[ <span class=\"ok\">OK</span> ] Threat mitigated auto-banned IP.", class: "", delay: 150 },
       { text: "[ <span class=\"ok\">OK</span> ] Loading Security Engineer profile_data.json", class: "", delay: 500 },
       { text: "Decrypting credentials...", class: "system", delay: 600 },
-      { text: "Access Granted. Welcome Divyakanth.", class: "ok", delay: 200 }
+      { text: "Access Granted. Welcome to Divyakanth's Portfolio.", class: "ok", delay: 200 }
     ];
 
     let currentDelay = 0;
