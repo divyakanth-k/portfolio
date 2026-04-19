@@ -345,12 +345,7 @@
     0 0 20px rgba(var(--accent-cyan-rgb), 0.08);
 }
 
-.project-card--featured {
-  border: 1px solid rgba(var(--accent-cyan-rgb), 0.2);
-  border-radius: var(--radius-md);
-}
-
-.project-card--featured::before {
+.project-card:hover::before {
   content: "";
   position: absolute;
   top: 0;

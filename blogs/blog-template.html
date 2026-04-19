@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,25 +79,31 @@
         margin: var(--space-12) 0 var(--space-4);
         color: var(--text-heading);
       }
+
       .post-content h3 {
         margin: var(--space-8) 0 var(--space-3);
         color: var(--text-heading);
       }
+
       .post-content p {
         margin-bottom: var(--space-6);
         font-size: 1.125rem;
       }
+
       .post-content ul,
       .post-content ol {
         margin-bottom: var(--space-6);
         margin-left: var(--space-6);
       }
+
       .post-content li {
         margin-bottom: var(--space-2);
       }
+
       .post-content pre {
         margin-bottom: var(--space-6);
       }
+
       .post-content blockquote {
         border-left: 4px solid var(--accent-cyan);
         background: var(--bg-surface);
@@ -148,7 +154,17 @@
           <span><i class="ph ph-clock"></i> 5 min read</span>
         </div>
         <h1 class="post-title">Your Article Title Here</h1>
-        <a href="../blog.html" class="btn-outline" style="display: inline-flex; align-items: center; gap: 8px">
+        <a
+          href="../blog.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+          "
+        >
           <i class="ph ph-arrow-left"></i> Back to Logs
         </a>
       </div>
