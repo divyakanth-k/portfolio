@@ -56,7 +56,16 @@
 }
 
 [data-theme="light"] .boot-sequence {
-  background: #0a0e1a;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .boot-sequence .boot-text span.ok {
+  color: var(--accent-emerald);
+}
+
+[data-theme="light"] .boot-sequence .boot-text span.warn {
+  color: var(--accent-rose);
 }
 
 /* ══════════════════════════════════════

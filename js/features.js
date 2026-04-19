@@ -97,8 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Init — respect saved preference, else system preference
   const saved = localStorage.getItem("theme");
-  const sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(saved || (sysDark ? "dark" : "light"));
+  applyTheme(saved || "light");
 
   if (themeToggle) {
     themeToggle.addEventListener("click", toggleTheme);
