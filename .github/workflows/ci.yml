@@ -1,3 +1,4 @@
+# .github/workflows/ci.yml
 name: CI Validation
 
 on:
@@ -13,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # ← add this line, full history for git log
 
       - name: Set up Python
         uses: actions/setup-python@v5
