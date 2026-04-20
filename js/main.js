@@ -293,11 +293,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute("href"));
+      const hash = anchor.getAttribute("href");
+      const target = document.querySelector(hash);
       if (target) {
         const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-height")) || 72;
         const top = target.offsetTop - navHeight;
         window.scrollTo({ top, behavior: "smooth" });
+        history.pushState(null, null, hash);
       }
     });
   });
@@ -513,6 +515,16 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "";
             // Trigger decryption on hero
             triggerDecryption();
+
+            // Restore scroll if a hash exists in the URL
+            if (window.location.hash) {
+              const target = document.querySelector(window.location.hash);
+              if (target) {
+                setTimeout(() => {
+                  target.scrollIntoView({ behavior: "smooth" });
+                }, 50);
+              }
+            }
           }, 800);
         }
       }, currentDelay);
