@@ -22,18 +22,16 @@ self.addEventListener("fetch", (e) => {
         caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone));
         return response;
       });
-    })
+    }),
   );
 });
 
 // Cleanup old caches on activate
 self.addEventListener("activate", (e) => {
   e.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-      )
-    )
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))),
   );
 });
 
