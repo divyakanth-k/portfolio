@@ -97,12 +97,15 @@
       .terminal-line:nth-child(1) {
         animation-delay: 0.2s;
       }
+
       .terminal-line:nth-child(2) {
         animation-delay: 0.8s;
       }
+
       .terminal-line:nth-child(3) {
         animation-delay: 1.4s;
       }
+
       .terminal-line:nth-child(4) {
         animation-delay: 2s;
       }
@@ -111,16 +114,19 @@
         color: var(--text-muted);
         padding-right: 8px;
       }
+
       .terminal-line .level-fatal {
         color: var(--accent-rose);
         font-weight: bold;
         padding-right: 8px;
       }
+
       .terminal-line .level-info {
         color: var(--accent-cyan);
         font-weight: bold;
         padding-right: 8px;
       }
+
       .terminal-line .msg {
         color: var(--text-primary);
       }
@@ -187,7 +193,9 @@
         </div>
 
         <div class="btn-wrapper">
-          <a href="index.html" class="btn-primary"> <i class="ph ph-terminal"></i> Reset Connection (Go Home) </a>
+          <!-- Fix 1: href="/" works on both GitHub Pages and Cloudflare -->
+          <!-- Fix 2: added "btn" class alongside "btn-primary" for correct styling -->
+          <a href="/" class="btn btn-primary"> <i class="ph ph-terminal"></i> Reset Connection (Go Home) </a>
         </div>
       </div>
     </div>
