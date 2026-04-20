@@ -1,6 +1,5 @@
-\
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +9,15 @@
       content="Technical blog by Divyakanth Koppolu — Notes on DevOps, Cloud Infrastructure, Security, and Linux Administration."
     />
     <meta name="author" content="Divyakanth Koppolu" />
+
+    <!-- FIX: Apply theme before paint to prevent flash -->
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        var sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", t || (sysDark ? "dark" : "light"));
+      })();
+    </script>
 
     <!-- Favicon & PWA -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -51,17 +59,17 @@
        ═══════════════════════════════════ -->
     <nav class="navbar navbar--visible" id="navbar">
       <div class="nav-inner">
-        <a href="/" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
+        <a href="index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
         <div class="nav-links" id="navLinks">
-          <a href="/#about" class="nav-link">About</a>
-          <a href="/#stack" class="nav-link">Stack</a>
-          <a href="/#experience" class="nav-link">Experience</a>
-          <a href="/#projects" class="nav-link">Projects</a>
-          <a href="/#education" class="nav-link">Education</a>
-          <a href="/#contact" class="nav-link">Contact</a>
-          <!-- UPDATED: add .html -->
-          <a href="/blog.html" class="nav-link active">Blog</a>
+          <!-- FIX: use relative paths so GitHub Pages /portfolio/ subpath works -->
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#stack" class="nav-link">Stack</a>
+          <a href="index.html#experience" class="nav-link">Experience</a>
+          <a href="index.html#projects" class="nav-link">Projects</a>
+          <a href="index.html#education" class="nav-link">Education</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
         </div>
 
         <div style="display: flex; align-items: center; gap: var(--space-3)">
@@ -125,8 +133,8 @@
           <ul class="blog-post-list">
             <li class="blog-post-item">
               <span class="blog-post-date">Apr 19</span>
-              <!-- UPDATED: add .html -->
-              <a href="/blogs/20260419-hidden-easter-eggs.html" class="blog-post-link"
+              <!-- FIX: add .html extension -->
+              <a href="blogs/20260419-hidden-easter-eggs.html" class="blog-post-link"
                 >Hidden Easter Eggs in the Command Palette</a
               >
               <span class="blog-post-tag">Portfolio</span>
