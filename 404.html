@@ -193,9 +193,13 @@
         </div>
 
         <div class="btn-wrapper">
-          <!-- Fix 1: href="/" works on both GitHub Pages and Cloudflare -->
-          <!-- Fix 2: added "btn" class alongside "btn-primary" for correct styling -->
-          <a href="/" class="btn btn-primary"> <i class="ph ph-terminal"></i> Reset Connection (Go Home) </a>
+          <!-- Dynamically return to correct root path regardless of deployment environment -->
+          <a
+            href="javascript:window.location.href = window.location.origin + (window.location.pathname.startsWith('/portfolio') ? '/portfolio/' : '/');"
+            class="btn btn-primary"
+          >
+            <i class="ph ph-terminal"></i> Reset Connection (Go Home)
+          </a>
         </div>
       </div>
     </div>
