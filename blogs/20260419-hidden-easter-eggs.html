@@ -20,7 +20,7 @@
       property="og:description"
       content="A guide to discovering the hidden terminal commands and kernel panics built into the Command Palette of this site."
     />
-    <meta property="og:image" content="https://divyakanth-k.github.io/portfolio/og-image.png" />
+    <meta property="og:image" content="https://portfolio.divyakanth.workers.dev/og-image.png" />
     <meta property="og:type" content="article" />
 
     <!-- Fonts -->
@@ -43,9 +43,6 @@
     <link rel="stylesheet" href="../css/blog.css" />
 
     <style>
-      /* ═══════════════════════════════════
-       Single Post Specific Styles
-       ═══════════════════════════════════ */
       .post-header {
         padding: 180px 0 60px;
         text-align: center;
@@ -82,7 +79,6 @@
         margin: 0 auto 100px;
       }
 
-      /* Simple markdown-like typography scaling */
       .post-content h2 {
         margin: var(--space-12) 0 var(--space-4);
         color: var(--text-heading);
@@ -128,16 +124,16 @@
     <!-- NAVIGATION -->
     <nav class="navbar navbar--visible" id="navbar">
       <div class="nav-inner">
-        <a href="../index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
+        <a href="/" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
         <div class="nav-links" id="navLinks">
-          <a href="../index.html#about" class="nav-link">About</a>
-          <a href="../index.html#stack" class="nav-link">Stack</a>
-          <a href="../index.html#experience" class="nav-link">Experience</a>
-          <a href="../index.html#projects" class="nav-link">Projects</a>
-          <a href="../index.html#education" class="nav-link">Education</a>
-          <a href="../index.html#contact" class="nav-link">Contact</a>
-          <a href="../blog.html" class="nav-link active">Blog</a>
+          <a href="/#about" class="nav-link">About</a>
+          <a href="/#stack" class="nav-link">Stack</a>
+          <a href="/#experience" class="nav-link">Experience</a>
+          <a href="/#projects" class="nav-link">Projects</a>
+          <a href="/#education" class="nav-link">Education</a>
+          <a href="/#contact" class="nav-link">Contact</a>
+          <a href="/blog" class="nav-link active">Blog</a>
         </div>
 
         <div style="display: flex; align-items: center; gap: var(--space-3)">
@@ -163,7 +159,7 @@
         </div>
         <h1 class="post-title">Hidden Easter Eggs in the Command Palette</h1>
         <a
-          href="../blog.html"
+          href="/blog"
           style="
             display: inline-flex;
             align-items: center;
@@ -216,7 +212,7 @@ User is not in the sudoers file. This incident will be reported to... yourself.<
         <h2>3. Kernel Panic (rm -rf /)</h2>
         <p>
           If you're feeling destructive and type <code>hack</code> or <code>rm -rf /</code>, the site will initiate a
-          "system lockdown" and redirect you to a completely custom <code>404.html</code> page.
+          "system lockdown" and redirect you to a completely custom <code>404</code> page.
         </p>
         <p>
           This 404 page simulates a Kubernetes Ingress Controller failure or a pod routing misconfiguration complete
@@ -240,7 +236,7 @@ User is not in the sudoers file. This incident will be reported to... yourself.<
 
   if (q === "rm -rf /") {
     // Initiate system lockdown
-    window.location.href = "404.html";
+    window.location.href = "/404";
   }
 });</code></pre>
         </div>
