@@ -1,11 +1,20 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Article Title Here — Divyakanth Koppolu</title>
     <meta name="description" content="A brief 1-2 sentence description of what this article is about for SEO." />
     <meta name="author" content="Divyakanth Koppolu" />
+
+    <!-- FIX: Apply theme before paint to prevent flash -->
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        var sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", t || (sysDark ? "dark" : "light"));
+      })();
+    </script>
 
     <!-- Favicon & PWA -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -118,16 +127,17 @@
     <!-- NAVIGATION -->
     <nav class="navbar navbar--visible" id="navbar">
       <div class="nav-inner">
-        <a href="/" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
+        <a href="../index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
         <div class="nav-links" id="navLinks">
-          <a href="/#about" class="nav-link">About</a>
-          <a href="/#stack" class="nav-link">Stack</a>
-          <a href="/#experience" class="nav-link">Experience</a>
-          <a href="/#projects" class="nav-link">Projects</a>
-          <a href="/#education" class="nav-link">Education</a>
-          <a href="/#contact" class="nav-link">Contact</a>
-          <a href="/blog" class="nav-link active">Blog</a>
+          <!-- FIX: relative paths for GitHub Pages subpath compatibility -->
+          <a href="../index.html#about" class="nav-link">About</a>
+          <a href="../index.html#stack" class="nav-link">Stack</a>
+          <a href="../index.html#experience" class="nav-link">Experience</a>
+          <a href="../index.html#projects" class="nav-link">Projects</a>
+          <a href="../index.html#education" class="nav-link">Education</a>
+          <a href="../index.html#contact" class="nav-link">Contact</a>
+          <a href="../blog.html" class="nav-link active">Blog</a>
         </div>
 
         <div style="display: flex; align-items: center; gap: var(--space-3)">
@@ -152,8 +162,9 @@
           <span><i class="ph ph-clock"></i> 5 min read</span>
         </div>
         <h1 class="post-title">Your Article Title Here</h1>
+        <!-- FIX: relative path back to blog -->
         <a
-          href="/blog"
+          href="../blog.html"
           style="
             display: inline-flex;
             align-items: center;
