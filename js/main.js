@@ -607,4 +607,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // 17. Handle native hash navigation on load
+  // ══════════════════════════════════════
+  if (window.location.hash && sessionStorage.getItem("bootScreenShown")) {
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-height")) || 72;
+        const top = target.offsetTop - navHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 150);
+  }
 });
