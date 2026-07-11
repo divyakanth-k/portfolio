@@ -1,13 +1,16 @@
 /* ============================================
-   Blog — Theme toggle, Search, Back-to-top,
-   Mobile nav, Decrypt text effect
+   Blog Page — Interactive Features
+   Theme sync, Search, back-to-top, mobile nav
    ============================================ */
 
 (function () {
   "use strict";
 
-  // Theme is already applied before paint via inline <script> in <head>.
-  // We only need to wire the toggle button here.
+  // ══════════════════════════════════════
+  // 1. Theme — sync with main portfolio
+  //    Reads localStorage (set by features.js on index.html)
+  //    and applies the same theme here
+  // ══════════════════════════════════════
   const themeToggle = document.getElementById("theme-toggle");
 
   function applyTheme(theme) {
@@ -19,30 +22,32 @@
     }
   }
 
-  // Sync icon with whatever theme is already active
-  const current = document.documentElement.getAttribute("data-theme") || "light";
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute("data-theme") || "dark";
+    applyTheme(current === "dark" ? "light" : "dark");
+  }
+
+  // Read saved preference from localStorage (shared with main page)
+  // Fall back to system preference, then dark as last resort
+  const savedTheme = localStorage.getItem("theme");
+  const sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(savedTheme || (sysDark ? "dark" : "light"));
+
   if (themeToggle) {
-    const icon = themeToggle.querySelector("i");
-    if (icon) icon.className = current === "dark" ? "ph ph-sun" : "ph ph-moon";
-    themeToggle.addEventListener("click", () => {
-      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      applyTheme(next);
-    });
+    themeToggle.addEventListener("click", toggleTheme);
   }
 
   // ══════════════════════════════════════
-  // Post Counts per Year Group
+  // 2. Post Counts per Year Group
   // ══════════════════════════════════════
   function updatePostCounts() {
     document.querySelectorAll(".blog-year-group").forEach((group) => {
-      const items = group.querySelectorAll(".blog-post-item");
       const visible = group.querySelectorAll(".blog-post-item:not(.hidden)").length;
+      const total = group.querySelectorAll(".blog-post-item").length;
       const countEl = group.querySelector(".blog-year-count");
       if (countEl) {
         countEl.textContent =
-          visible === items.length
-            ? `${items.length} post${items.length !== 1 ? "s" : ""}`
-            : `${visible} / ${items.length} posts`;
+          visible === total ? `${total} post${total !== 1 ? "s" : ""}` : `${visible} / ${total} posts`;
       }
     });
   }
@@ -50,7 +55,7 @@
   updatePostCounts();
 
   // ══════════════════════════════════════
-  // Live Search
+  // 3. Live Search
   // ══════════════════════════════════════
   const searchInput = document.getElementById("blogSearch");
   const searchCount = document.getElementById("searchCount");
@@ -64,22 +69,26 @@
       let matchCount = 0;
 
       postItems.forEach((item) => {
+        const linkEl = item.querySelector(".blog-post-link");
+        const tagEl = item.querySelector(".blog-post-tag");
         const text =
-          (item.querySelector(".blog-post-link")?.textContent ?? "").toLowerCase() +
-          " " +
-          (item.querySelector(".blog-post-tag")?.textContent ?? "").toLowerCase();
+          (linkEl ? linkEl.textContent : "").toLowerCase() + " " + (tagEl ? tagEl.textContent : "").toLowerCase();
+
         const matches = !query || text.includes(query);
         item.classList.toggle("hidden", !matches);
         if (matches) matchCount++;
       });
 
+      // Hide year groups with no visible posts
       yearGroups.forEach((group) => {
-        group.classList.toggle("hidden", group.querySelectorAll(".blog-post-item:not(.hidden)").length === 0);
+        const hasVisible = group.querySelectorAll(".blog-post-item:not(.hidden)").length > 0;
+        group.classList.toggle("hidden", !hasVisible);
       });
 
       if (searchCount) {
         searchCount.textContent = query ? `${matchCount} result${matchCount !== 1 ? "s" : ""}` : "";
       }
+
       if (noResults) {
         noResults.classList.toggle("visible", matchCount === 0 && query.length > 0);
       }
@@ -89,7 +98,7 @@
   }
 
   // ══════════════════════════════════════
-  // Back to Top
+  // 4. Back to Top
   // ══════════════════════════════════════
   const backToTop = document.getElementById("back-to-top");
 
@@ -108,41 +117,67 @@
   }
 
   // ══════════════════════════════════════
-  // Mobile Nav Toggle
+  // 5. Mobile Nav Toggle
   // ══════════════════════════════════════
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
 
   if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
     navLinks.querySelectorAll(".nav-link").forEach((link) => {
       link.addEventListener("click", () => navLinks.classList.remove("open"));
     });
   }
 
   // ══════════════════════════════════════
-  // Decrypt Text Effect
+  // 6. Decryption Text Effect
   // ══════════════════════════════════════
-  const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+
+  function triggerDecryption() {
+    const decryptElements = document.querySelectorAll(".decrypt-text");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !entry.target.classList.contains("decrypted")) {
+            entry.target.classList.add("decrypted");
+            decryptNode(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    decryptElements.forEach((el) => observer.observe(el));
+  }
 
   function decryptNode(element) {
     const originalText = element.getAttribute("data-text");
     if (!originalText) return;
 
-    const targetEl = element.querySelector(".gradient-text") ?? element;
+    const childSpan = element.querySelector(".gradient-text");
+    let targetEl = element;
+    if (childSpan) targetEl = childSpan; // decrypt the inner span if it exists
+
     let iterations = 0;
+    const maxIterations = 15;
 
     const interval = setInterval(() => {
       targetEl.textContent = originalText
         .split("")
-        .map((char, i) => {
+        .map((char, index) => {
           if (char === " ") return " ";
-          if (i < iterations) return originalText[i];
-          return CHARS[Math.floor(Math.random() * CHARS.length)];
+          if (index < iterations) return originalText[index];
+          return chars[Math.floor(Math.random() * chars.length)];
         })
         .join("");
 
-      iterations += 0.5;
+      iterations += 1 / 2;
 
       if (iterations >= originalText.length) {
         clearInterval(interval);
@@ -151,18 +186,5 @@
     }, 40);
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !entry.target.classList.contains("decrypted")) {
-          entry.target.classList.add("decrypted");
-          decryptNode(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-
-  document.querySelectorAll(".decrypt-text").forEach((el) => observer.observe(el));
+  triggerDecryption();
 })();
