@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K8s TaskBoard: Deploying a Real App on Local Kubernetes — Divyakanth Koppolu</title>
+    <meta
+      name="description"
+      content="A hands-on walkthrough of containerising a web app with Docker and deploying it to a local Kubernetes cluster via Docker Desktop — covering Deployments, Services, rolling updates, and the local registry trick."
+    />
+    <meta name="author" content="Divyakanth Koppolu" />
+
+    <!-- FIX: Apply theme before paint to prevent flash -->
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        var sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", t || (sysDark ? "dark" : "light"));
+      })();
+    </script>
+
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="K8s TaskBoard: Deploying a Real App on Local Kubernetes — Divyakanth Koppolu" />
+    <meta
+      property="og:description"
+      content="A hands-on walkthrough of containerising a web app with Docker and deploying it to a local Kubernetes cluster via Docker Desktop."
+    />
+    <meta property="og:image" content="https://portfolio.divyakanth.workers.dev/og-image.png" />
+    <meta property="og:type" content="article" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/features.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+
+    <style>
+      .post-header {
+        padding: 180px 0 60px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: var(--space-12);
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-4);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        margin-bottom: var(--space-6);
+      }
+
+      .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+
+      .post-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--text-heading);
+        margin-bottom: var(--space-6);
+        line-height: var(--leading-tight);
+      }
+
+      .post-content {
+        max-width: 800px;
+        margin: 0 auto 100px;
+      }
+
+      .post-content h2 {
+        margin: var(--space-12) 0 var(--space-4);
+        color: var(--text-heading);
+      }
+
+      .post-content h3 {
+        margin: var(--space-8) 0 var(--space-3);
+        color: var(--text-heading);
+      }
+
+      .post-content p {
+        margin-bottom: var(--space-6);
+        font-size: 1.125rem;
+      }
+
+      .post-content ul,
+      .post-content ol {
+        margin-bottom: var(--space-6);
+        margin-left: var(--space-6);
+      }
+
+      .post-content li {
+        margin-bottom: var(--space-2);
+        font-size: 1.125rem;
+      }
+
+      .post-content pre {
+        margin-bottom: var(--space-6);
+      }
+
+      .post-content blockquote {
+        border-left: 4px solid var(--accent-cyan);
+        background: var(--bg-surface);
+        padding: var(--space-4) var(--space-6);
+        margin-bottom: var(--space-6);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+
+      /* ── Code Blocks ── */
+      .code-block {
+        border-radius: 10px;
+        border: 2px solid #00d4aa;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+
+      .code-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        background: rgba(0, 212, 170, 0.12);
+        border-bottom: 1px solid #00d4aa;
+      }
+
+      .code-lang {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #00d4aa;
+      }
+
+      .code-copy {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 10px;
+        background: transparent;
+        border: 1px solid rgba(0, 212, 170, 0.5);
+        border-radius: 6px;
+        color: rgba(0, 212, 170, 0.7);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        cursor: pointer;
+        transition: all 150ms ease;
+      }
+
+      .code-copy:hover {
+        color: #00d4aa;
+        border-color: #00d4aa;
+        background: rgba(0, 212, 170, 0.08);
+      }
+
+      .code-copy.copied {
+        color: #22c55e;
+        border-color: #22c55e;
+      }
+
+      .code-block pre {
+        margin: 0;
+        padding: 20px 24px;
+        overflow-x: auto;
+        background: #0d1117;
+      }
+
+      .code-block code {
+        font-family: "JetBrains Mono", "Fira Code", monospace;
+        font-size: 0.875rem;
+        line-height: 1.65;
+        color: #c9d1d9;
+        white-space: pre;
+      }
+
+      /* Light mode */
+      [data-theme="light"] .code-block {
+        border-color: #0a7a5a;
+      }
+
+      [data-theme="light"] .code-header {
+        background: rgba(10, 122, 90, 0.08);
+        border-bottom-color: #0a7a5a;
+      }
+
+      [data-theme="light"] .code-lang {
+        color: #0a7a5a;
+      }
+
+      [data-theme="light"] .code-copy {
+        border-color: rgba(10, 122, 90, 0.5);
+        color: rgba(10, 122, 90, 0.7);
+      }
+
+      [data-theme="light"] .code-copy:hover {
+        color: #0a7a5a;
+        border-color: #0a7a5a;
+        background: rgba(10, 122, 90, 0.06);
+      }
+
+      [data-theme="light"] .code-block pre {
+        background: #f6f8fa;
+      }
+
+      [data-theme="light"] .code-block code {
+        color: #24292f;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar--visible" id="navbar">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
+
+        <div class="nav-links" id="navLinks">
+          <!-- FIX: relative paths for GitHub Pages subpath compatibility -->
+          <a href="../index.html#about" class="nav-link">About</a>
+          <a href="../index.html#stack" class="nav-link">Stack</a>
+          <a href="../index.html#experience" class="nav-link">Experience</a>
+          <a href="../index.html#projects" class="nav-link">Projects</a>
+          <a href="../index.html#education" class="nav-link">Education</a>
+          <a href="../index.html#contact" class="nav-link">Contact</a>
+          <a href="../blog.html" class="nav-link active">Blog</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-3)">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="ph ph-sun"></i>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- POST HEADER -->
+    <header class="post-header">
+      <div class="container" style="max-width: 800px">
+        <div class="post-meta">
+          <span><i class="ph ph-calendar"></i> July 12, 2026</span>
+          <span><i class="ph ph-tag"></i> Kubernetes</span>
+          <span><i class="ph ph-clock"></i> 10 min read</span>
+        </div>
+        <h1 class="post-title">K8s TaskBoard: Deploying a Real App on Local Kubernetes</h1>
+        <!-- FIX: relative path back to blog -->
+        <a
+          href="../blog.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+          "
+        >
+          <i class="ph ph-arrow-left"></i> Back to Blogs
+        </a>
+      </div>
+    </header>
+
+    <!-- POST CONTENT -->
+    <main class="post-content container">
+      <article>
+        <p class="lead">
+          Most Kubernetes tutorials hand you a <code>kubectl apply</code> and call it done. This one doesn't. We build a
+          real task-management dashboard called <strong>K8s TaskBoard</strong>, containerise it with Docker, navigate
+          the local-registry gotcha that trips up almost everyone on Docker Desktop, and end up with two healthy pods
+          serving live traffic — all on your own machine.
+        </p>
+
+        <h2>1. Project structure</h2>
+        <p>
+          The app is a dark-themed single-page dashboard served by <code>nginx:alpine</code>. Alongside the source code
+          sit four Kubernetes manifests that mirror what a real production deployment looks like.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">text</span>
+          </div>
+          <pre><code class="language-text">k8s-taskboard/
+├── app/
+│   ├── index.html       ← dashboard UI
+│   ├── style.css        ← dark theme
+│   └── app.js           ← task logic
+├── k8s/
+│   ├── deployment.yaml  ← replicas, rolling update, health probes
+│   ├── service.yaml     ← NodePort exposure on :30080
+│   ├── configmap.yaml   ← externalised app config
+│   └── hpa.yaml         ← horizontal pod autoscaler
+├── Dockerfile
+├── nginx.conf           ← /health endpoint for Kubernetes probes
+└── deploy.sh            ← one-shot build + deploy script</code></pre>
+        </div>
+
+        <h2>2. The Dockerfile</h2>
+        <p>
+          <code>nginx:alpine</code> is the base — the final image is under 25 MB. We wipe the default nginx welcome
+          page, copy the app in, and drop in a custom <code>nginx.conf</code>.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">dockerfile</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-dockerfile">FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY ./app/ .
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+        </div>
+
+        <p>
+          The nginx config adds a <code>/health</code> route that returns <code>200 OK</code>. Kubernetes liveness and
+          readiness probes hit this endpoint — not your app's main page — so a slow JS bundle never causes a false
+          failure.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">nginx</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-nginx">location /health {
+    access_log off;
+    return 200 "healthy\n";
+    add_header Content-Type text/plain;
+}</code></pre>
+        </div>
+
+        <h2>3. Kubernetes manifests</h2>
+
+        <h3>3.1 Deployment — replicas, rolling updates, probes</h3>
+        <p>
+          The <code>Deployment</code> is the brain. It declares how many pods to keep alive, enforces resource budgets,
+          and describes exactly how pods should be updated without taking the service down.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">yaml</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-yaml">spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        # create 1 extra pod before killing the old one
+      maxUnavailable: 0  # never drop below the desired replica count
+  template:
+    spec:
+      containers:
+        - name: k8s-taskboard
+          image: local-registry:5000/k8s-taskboard:latest
+          resources:
+            requests: { memory: "64Mi",  cpu: "50m"  }
+            limits:   { memory: "128Mi", cpu: "200m" }
+          readinessProbe:        # when is the pod ready for traffic?
+            httpGet: { path: /health, port: 80 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:         # is the pod still alive?
+            httpGet: { path: /health, port: 80 }
+            initialDelaySeconds: 15
+            periodSeconds: 20</code></pre>
+        </div>
+
+        <h3>3.2 Service — stable network endpoint</h3>
+        <p>
+          Pod IPs change every time a pod restarts, scales, or updates. A <code>Service</code> gives them a permanent
+          address. <code>NodePort</code> exposes it outside the cluster so a browser can reach it directly.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">yaml</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-yaml">spec:
+  type: NodePort
+  selector:
+    app: k8s-taskboard   # send traffic to pods with this label
+  ports:
+    - port: 80           # Service port (inside cluster)
+      targetPort: 80     # container port
+      nodePort: 30080    # exposed on the host at localhost:30080</code></pre>
+        </div>
+
+        <h3>3.3 ConfigMap and HPA</h3>
+        <p>
+          A <code>ConfigMap</code> externalises environment-specific settings — app name, log level, feature flags — so
+          you can change them without rebuilding the image. The <code>HorizontalPodAutoscaler</code> watches CPU and
+          memory metrics and scales the replica count up or down automatically.
+        </p>
+
+        <h2>4. The local-registry gotcha</h2>
+        <p>
+          This is where most people hit a wall. Docker Desktop's Kubernetes runs on <strong>kind</strong> with
+          <strong>containerd</strong> as its runtime — entirely separate from the Docker daemon you use on your Mac.
+          Images built with <code>docker build</code> exist in Docker's layer cache, not in containerd's, so the cluster
+          simply can't see them.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-bash"># Confirm your cluster is running on kind / containerd
+kubectl describe node desktop-control-plane | grep "Container Runtime"
+# ContainerRuntime: containerd://2.x.x
+# ProviderID:       kind://docker/desktop/desktop-control-plane</code></pre>
+        </div>
+
+        <p>
+          The fix: run a <code>registry:2</code> container, connect it to the <code>kind</code> Docker network, and push
+          images through it. The Mac side pushes via <code>localhost:5001</code>; the cluster node pulls via the
+          container hostname <code>local-registry:5000</code>.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-bash"># 1. Start the registry, exposed on your Mac at port 5001
+docker run -d --restart=always -p 5001:5000 --name local-registry registry:2
+
+# 2. Join it to the kind network so the cluster node can resolve it by name
+docker network connect kind local-registry
+
+# 3. Build, tag, and push via localhost (Mac Docker daemon)
+docker build -t k8s-taskboard:latest .
+docker tag k8s-taskboard:latest localhost:5001/k8s-taskboard:latest
+docker push localhost:5001/k8s-taskboard:latest
+
+# 4. Confirm the node can reach it
+docker exec desktop-control-plane \
+  curl -s http://local-registry:5000/v2/k8s-taskboard/tags/list
+# → {"name":"k8s-taskboard","tags":["latest"]}</code></pre>
+        </div>
+
+        <blockquote>
+          Push via <code>localhost:5001</code> (Mac port mapping). Pull via <code>local-registry:5000</code> (kind
+          Docker network hostname). Same registry container, two different addresses.
+        </blockquote>
+
+        <h2>5. Deploy and verify</h2>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-bash"># Apply manifests in dependency order
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+# Watch pods start up
+kubectl get pods -l app=k8s-taskboard -w
+
+# Block until the rollout is done
+kubectl rollout status deployment/k8s-taskboard
+# → deployment "k8s-taskboard" successfully rolled out
+
+# Forward a local port (NodePort doesn't bind on Docker Desktop)
+kubectl port-forward service/k8s-taskboard-service 9090:80
+# Open → http://localhost:9090</code></pre>
+        </div>
+
+        <p>
+          When both pods show <code>1/1 Running</code> and the rollout reports success, the app is live. The dashboard
+          displays real-time pod names, replica counts, and service details pulled from the Kubernetes deployment info
+          section at the bottom of the page.
+        </p>
+
+        <h2>6. Rolling updates with zero downtime</h2>
+        <p>
+          Change something in the app. Rebuild, push, and trigger a restart. Kubernetes spins up a new pod, waits for
+          its readiness probe to pass, then drains and terminates the old one. Traffic flows the entire time.
+        </p>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-bash">docker build -t k8s-taskboard:latest .
+docker push localhost:5001/k8s-taskboard:latest
+
+kubectl rollout restart deployment/k8s-taskboard
+kubectl rollout status deployment/k8s-taskboard
+# Waiting for deployment "k8s-taskboard" rollout to finish:
+#   1 old replicas are pending termination...
+# deployment "k8s-taskboard" successfully rolled out</code></pre>
+        </div>
+
+        <h2>7. Handy kubectl commands</h2>
+
+        <div class="code-block" style="margin-bottom: var(--space-6)">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
+          </div>
+          <pre><code class="language-bash"># Open a shell inside a running pod
+kubectl exec -it &lt;pod-name&gt; -- sh
+
+# Stream logs from all matching pods at once
+kubectl logs -f -l app=k8s-taskboard
+
+# Scale to 4 replicas manually
+kubectl scale deployment k8s-taskboard --replicas=4
+
+# Roll back to the previous revision
+kubectl rollout undo deployment/k8s-taskboard
+
+# Show every resource owned by this app
+kubectl get all -l app=k8s-taskboard
+
+# Clean up everything
+kubectl delete -f k8s/</code></pre>
+        </div>
+
+        <h2>Local vs. production</h2>
+        <p>
+          The YAML files are identical between local and cloud. Two things change when you move to AWS EKS, GKE, or
+          Azure AKS:
+        </p>
+        <ul>
+          <li>
+            <code>local-registry:5000/k8s-taskboard:latest</code> becomes an ECR or Docker Hub image URL pushed by your
+            CI pipeline.
+          </li>
+          <li>
+            <code>type: NodePort</code> becomes <code>type: LoadBalancer</code> — the cloud provider automatically
+            provisions an external load balancer.
+          </li>
+        </ul>
+        <p>
+          Deployments, probes, ConfigMaps, resource limits, and the HPA carry over untouched. Kubernetes abstracts the
+          infrastructure — the same manifests describe a single-node laptop cluster and a thousand-node production
+          fleet.
+        </p>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-socials">
+          <a
+            href="https://github.com/divyakanth-k"
+            class="social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-github-logo"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/divyakanth-k/"
+            class="social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
+        </div>
+        <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/blog.js"></script>
+  </body>
+</html>

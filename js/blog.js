@@ -188,3 +188,35 @@
 
   triggerDecryption();
 })();
+
+/* ══════════════════════════════════════
+   Code Block — Copy Button
+   ══════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  document.querySelectorAll(".code-copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const pre = btn.closest(".code-block").querySelector("pre");
+      const text = pre ? pre.innerText : "";
+
+      navigator.clipboard
+        .writeText(text)
+        .then(function () {
+          const icon = btn.querySelector("i");
+          const originalClass = icon ? icon.className : "";
+
+          btn.classList.add("copied");
+          if (icon) icon.className = "ph ph-check";
+
+          setTimeout(function () {
+            btn.classList.remove("copied");
+            if (icon) icon.className = originalClass;
+          }, 1800);
+        })
+        .catch(function () {
+          /* clipboard access denied — silently ignore */
+        });
+    });
+  });
+})();
