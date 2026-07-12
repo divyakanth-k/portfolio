@@ -10,19 +10,20 @@
     />
     <meta name="author" content="Divyakanth Koppolu" />
 
+    <!-- FIX: Apply theme before paint to prevent flash -->
     <script>
       (function () {
         var t = localStorage.getItem("theme");
-        document.documentElement.setAttribute(
-          "data-theme",
-          t || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
-        );
+        var sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", t || (sysDark ? "dark" : "light"));
       })();
     </script>
 
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="manifest.json" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Blog — Divyakanth Koppolu" />
     <meta
       property="og:description"
@@ -32,6 +33,7 @@
     <meta property="og:url" content="https://portfolio.divyakanth.workers.dev/blog" />
     <meta property="og:image" content="https://portfolio.divyakanth.workers.dev/og-image.png" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,8 +41,10 @@
       rel="stylesheet"
     />
 
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
@@ -50,11 +54,15 @@
   </head>
 
   <body>
+    <!-- ═══════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════ -->
     <nav class="navbar navbar--visible" id="navbar">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><span class="nav-logo-prefix">&gt;_</span> DK</a>
+        <a href="index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
         <div class="nav-links" id="navLinks">
+          <!-- FIX: use relative paths so GitHub Pages /portfolio/ subpath works -->
           <a href="index.html#about" class="nav-link">About</a>
           <a href="index.html#stack" class="nav-link">Stack</a>
           <a href="index.html#experience" class="nav-link">Experience</a>
@@ -69,12 +77,17 @@
             <i class="ph ph-sun"></i>
           </button>
           <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
     </nav>
 
+    <!-- ═══════════════════════════════════
+       BLOG HERO
+       ═══════════════════════════════════ -->
     <section class="blog-hero">
       <div class="blog-hero-bg"></div>
       <div class="blog-hero-grid"></div>
@@ -104,45 +117,50 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════
+       BLOG POST LISTING
+       ═══════════════════════════════════ -->
     <section class="blog-listing">
       <div class="container">
+        <!-- 2026 -->
         <div class="blog-year-group" data-year="2026">
           <div class="blog-year-header">
             <span class="blog-year-label">2026</span>
             <span class="blog-year-line"></span>
             <span class="blog-year-count"></span>
           </div>
+
           <ul class="blog-post-list">
             <li class="blog-post-item">
-              <span class="blog-post-date">Jul 11</span>
-              <a href="blogs/20260711-local-kubernetes-deployment.html" class="blog-post-link">
-                Deploying a Real Project on Local Kubernetes
-              </a>
-              <span class="blog-post-tag">Kubernetes</span>
-            </li>
-            <li class="blog-post-item">
               <span class="blog-post-date">Apr 19</span>
-              <a href="blogs/20260419-hidden-easter-eggs.html" class="blog-post-link">
-                Hidden Easter Eggs in the Command Palette
-              </a>
+              <!-- FIX: add .html extension -->
+              <a href="blogs/20260419-hidden-easter-eggs.html" class="blog-post-link"
+                >Hidden Easter Eggs in the Command Palette</a
+              >
               <span class="blog-post-tag">Portfolio</span>
             </li>
+            <!-- New posts for 2026 go here -->
           </ul>
         </div>
 
+        <!-- 2025 -->
         <div class="blog-year-group" data-year="2025">
           <div class="blog-year-header">
             <span class="blog-year-label">2025</span>
             <span class="blog-year-line"></span>
             <span class="blog-year-count"></span>
           </div>
+
           <ul class="blog-post-list">
-            <!-- posts go here -->
+            <!-- New posts for 2025 go here -->
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════ -->
     <footer class="footer">
       <div class="footer-inner">
         <div class="footer-socials">
@@ -152,25 +170,27 @@
             aria-label="GitHub"
             target="_blank"
             rel="noopener"
-          >
-            <i class="ph ph-github-logo"></i>
-          </a>
+            ><i class="ph ph-github-logo"></i
+          ></a>
           <a
             href="https://www.linkedin.com/in/divyakanth-k/"
             class="social-link"
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener"
-          >
-            <i class="ph ph-linkedin-logo"></i>
-          </a>
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
         </div>
         <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
       </div>
     </footer>
 
+    <!-- ═══════════════════════════════════
+       BACK TO TOP
+       ═══════════════════════════════════ -->
     <button id="back-to-top" aria-label="Back to top"><i class="ph ph-arrow-up"></i> top</button>
 
+    <!-- Scripts -->
     <script src="js/blog.js"></script>
   </body>
 </html>
