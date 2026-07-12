@@ -10,19 +10,20 @@
     />
     <meta name="author" content="Divyakanth Koppolu" />
 
+    <!-- FIX: Apply theme before paint to prevent flash -->
     <script>
       (function () {
         var t = localStorage.getItem("theme");
-        document.documentElement.setAttribute(
-          "data-theme",
-          t || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
-        );
+        var sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", t || (sysDark ? "dark" : "light"));
       })();
     </script>
 
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="manifest" href="../manifest.json" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Hidden Easter Eggs in the Command Palette — Divyakanth Koppolu" />
     <meta
       property="og:description"
@@ -31,6 +32,7 @@
     <meta property="og:image" content="https://portfolio.divyakanth.workers.dev/og-image.png" />
     <meta property="og:type" content="article" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,22 +40,103 @@
       rel="stylesheet"
     />
 
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/components.css" />
     <link rel="stylesheet" href="../css/features.css" />
     <link rel="stylesheet" href="../css/blog.css" />
+
+    <style>
+      .post-header {
+        padding: 180px 0 60px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: var(--space-12);
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-4);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        margin-bottom: var(--space-6);
+      }
+
+      .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+
+      .post-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--text-heading);
+        margin-bottom: var(--space-6);
+        line-height: var(--leading-tight);
+      }
+
+      .post-content {
+        max-width: 800px;
+        margin: 0 auto 100px;
+      }
+
+      .post-content h2 {
+        margin: var(--space-12) 0 var(--space-4);
+        color: var(--text-heading);
+      }
+
+      .post-content h3 {
+        margin: var(--space-8) 0 var(--space-3);
+        color: var(--text-heading);
+      }
+
+      .post-content p {
+        margin-bottom: var(--space-6);
+        font-size: 1.125rem;
+      }
+
+      .post-content ul,
+      .post-content ol {
+        margin-bottom: var(--space-6);
+        margin-left: var(--space-6);
+      }
+
+      .post-content li {
+        margin-bottom: var(--space-2);
+      }
+
+      .post-content pre {
+        margin-bottom: var(--space-6);
+      }
+
+      .post-content blockquote {
+        border-left: 4px solid var(--accent-cyan);
+        background: var(--bg-surface);
+        padding: var(--space-4) var(--space-6);
+        margin-bottom: var(--space-6);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- NAVIGATION -->
     <nav class="navbar navbar--visible" id="navbar">
       <div class="nav-inner">
-        <a href="../index.html" class="nav-logo"><span class="nav-logo-prefix">&gt;_</span> DK</a>
+        <a href="../index.html" class="nav-logo"> <span class="nav-logo-prefix">&gt;_</span> DK </a>
 
         <div class="nav-links" id="navLinks">
+          <!-- FIX: relative paths for GitHub Pages subpath compatibility -->
           <a href="../index.html#about" class="nav-link">About</a>
           <a href="../index.html#stack" class="nav-link">Stack</a>
           <a href="../index.html#experience" class="nav-link">Experience</a>
@@ -68,12 +151,15 @@
             <i class="ph ph-sun"></i>
           </button>
           <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
     </nav>
 
+    <!-- POST HEADER -->
     <header class="post-header">
       <div class="container" style="max-width: 800px">
         <div class="post-meta">
@@ -82,10 +168,24 @@
           <span><i class="ph ph-clock"></i> 2 min read</span>
         </div>
         <h1 class="post-title">Hidden Easter Eggs in the Command Palette</h1>
-        <a href="../blog.html" class="post-back-link"> <i class="ph ph-arrow-left"></i> Back to Logs </a>
+        <!-- FIX: relative path back to blog -->
+        <a
+          href="../blog.html"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+          "
+        >
+          <i class="ph ph-arrow-left"></i> Back to Logs
+        </a>
       </div>
     </header>
 
+    <!-- POST CONTENT -->
     <main class="post-content container">
       <article>
         <p class="lead">
@@ -107,16 +207,16 @@
 
         <h2>2. The 'sudo' Incident</h2>
         <p>
-          We've all been there — trying to execute a command on a remote Linux server only to be met with permission
+          We've all been there—trying to execute a command on a remote Linux server only to be met with permission
           denied. If you type <code>sudo</code> or <code>su</code> into the palette search bar, the UI will intercept it
           and throw the classic warning:
         </p>
 
-        <div class="code-block">
+        <div class="code-block" style="margin-bottom: var(--space-6)">
           <div class="code-header">
             <span class="code-lang">bash</span>
           </div>
-          <pre><code>$ sudo root
+          <pre><code class="language-bash">$ sudo root
 User is not in the sudoers file. This incident will be reported to... yourself.</code></pre>
         </div>
 
@@ -126,25 +226,27 @@ User is not in the sudoers file. This incident will be reported to... yourself.<
           "system lockdown" and redirect you to a completely custom <code>404</code> page.
         </p>
         <p>
-          This 404 page simulates a Kubernetes Ingress Controller failure complete with time-stamped terminal logs, a
-          blinking cursor, and an animated <strong>FATAL</strong> status message.
+          This 404 page simulates a Kubernetes Ingress Controller failure or a pod routing misconfiguration complete
+          with time-stamped terminal logs, a blinking cursor, and an animated <strong>FATAL</strong> status message.
         </p>
 
         <h2>How it works</h2>
         <p>
-          The Easter eggs are built in pure Vanilla JavaScript by catching specific strings in the palette's
-          <code>input</code> event before the standard filtering logic runs:
+          The Easter eggs are built in pure Vanilla JavaScript by attaching a dynamic listener to the
+          <code>input</code> event of the search field. Before the standard filtering logic runs, we catch specific
+          strings using simple conditional matching:
         </p>
 
-        <div class="code-block">
+        <div class="code-block" style="margin-bottom: var(--space-6)">
           <div class="code-header">
             <span class="code-lang">javascript</span>
             <button class="code-copy" aria-label="Copy code"><i class="ph ph-copy"></i></button>
           </div>
-          <pre><code>cmdInput.addEventListener("input", () => {
+          <pre><code class="language-javascript">cmdInput.addEventListener("input", () => {
   const q = cmdInput.value.toLowerCase().trim();
 
   if (q === "rm -rf /") {
+    // Initiate system lockdown
     window.location.href = "/404";
   }
 });</code></pre>
@@ -154,6 +256,7 @@ User is not in the sudoers file. This incident will be reported to... yourself.<
       </article>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-inner">
         <div class="footer-socials">
@@ -163,23 +266,22 @@ User is not in the sudoers file. This incident will be reported to... yourself.<
             aria-label="GitHub"
             target="_blank"
             rel="noopener"
-          >
-            <i class="ph ph-github-logo"></i>
-          </a>
+            ><i class="ph ph-github-logo"></i
+          ></a>
           <a
             href="https://www.linkedin.com/in/divyakanth-k/"
             class="social-link"
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener"
-          >
-            <i class="ph ph-linkedin-logo"></i>
-          </a>
+            ><i class="ph ph-linkedin-logo"></i
+          ></a>
         </div>
         <p class="footer-text">&copy; 2026 Divyakanth Koppolu. All rights reserved.</p>
       </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="../js/blog.js"></script>
   </body>
 </html>
